@@ -1,5 +1,8 @@
 - 👋 Hi, I’m @geekymon2
-- 👀 I’m interested in technology, software development and open source
+- 👀 I’m interested in a wide array of tools and technologies and like to keep up to the latest and greatest.
+- 💻 I have development expertise with .net, .net core, java, spring, spring boot, reactjs, flutter.
+- ☀️ I love using open source and linux.
+
 
 <!---
 geekymon2/geekymon2 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
