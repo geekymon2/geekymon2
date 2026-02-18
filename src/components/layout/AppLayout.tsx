@@ -1,19 +1,14 @@
 import { Layout } from "antd";
 import Header from "./Header";
 import Footer from "./Footer";
+import { layoutStyle, contentStyle } from "./appLayoutStyles";
 
 export default function AppLayout() {
   return (
-    <Layout style={{ minHeight: "100vh" }}>
+    <Layout style={layoutStyle}>
       <Header />
-      <Layout>
-        <Layout.Content
-          style={{
-            padding: "24px",
-            margin: 0,
-            minHeight: 280,
-          }}
-        ></Layout.Content>
+      <Layout style={layoutStyle}>
+        <Layout.Content style={contentStyle}></Layout.Content>
       </Layout>
       <Footer />
     </Layout>
