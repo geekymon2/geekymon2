@@ -19,6 +19,11 @@ export default function Header() {
       label: "Contact",
       onClick: () => (window.location.href = "#contact"),
     },
+    {
+      key: "4",
+      label: "Settings",
+      onClick: () => (window.location.href = "#settings"),
+    },
   ];
 
   return (
