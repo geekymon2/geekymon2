@@ -13,7 +13,7 @@ export default function Footer() {
       <Row gutter={16} className="footer-top-row">
         <Col xs={24} sm={12}>
           <p className="footer-copyright">
-            © {currentYear} GeekyMon2. All rights reserved.
+            © {currentYear} geekymon2. All rights reserved.
           </p>
         </Col>
       </Row>
