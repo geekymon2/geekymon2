@@ -8,6 +8,7 @@ export const headerStyle = {
 export const titleStyle = {
   fontSize: "24px",
   fontWeight: "bold",
+  color: "white",
 };
 
 export const menuStyle = {

@@ -1,9 +1,16 @@
-export const layoutStyle = {
-  margin: 0,
+import type { CSSProperties } from 'react';
+
+export const layoutStyle: CSSProperties = {
+  display: 'flex',
+  flexDirection: 'column',
+  minHeight: '100vh',
 };
 
-export const contentStyle = {
-  padding: "24px",
-  margin: 0,
-  minHeight: 280,
+export const innerLayoutStyle: CSSProperties = {
+  display: 'flex',
+  flexDirection: 'row',
+};
+
+export const contentStyle: CSSProperties = {
+  flex: 1,
 };
