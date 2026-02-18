@@ -26,12 +26,7 @@ export default function Header() {
       <Title level={3} style={titleStyle}>
         GeekyMon2
       </Title>
-      <Menu
-        theme="dark"
-        mode="horizontal"
-        items={menuItems}
-        style={menuStyle}
-      />
+      <Menu mode="horizontal" items={menuItems} style={menuStyle} />
     </Layout.Header>
   );
 }

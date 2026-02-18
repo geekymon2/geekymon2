@@ -1,9 +1,12 @@
+import { ConfigProvider } from "antd";
 import AppLayout from "./components/layout/AppLayout";
+import { lightTheme } from "./themes";
 
 function App() {
-
   return (
-    <AppLayout />
+    <ConfigProvider theme={lightTheme}>
+      <AppLayout />
+    </ConfigProvider>
   );
 }
 
