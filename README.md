@@ -1,8 +1,9 @@
-- 👋 Hi, I’m @geekymon2
+# 👋 Hi, I’m @geekymon2
+
 - 👀 I’m interested in a wide array of tools and technologies and like to keep up to the latest and greatest.
 - 💻 I have development expertise with .net, .net core, java, spring, spring boot, reactjs, flutter.
 - ☀️ I love using open source and linux.
-- :clapper: Visit my youtube channel here: https://www.youtube.com/c/geekymon2
+- :clapper: Visit my [YouTube channel](https://www.youtube.com/c/geekymon2) here.
 
 [![Geeky Mon2's GitHub stats](https://github-readme-stats.vercel.app/api?username=geekymon2&theme=github_dark)](https://github.com/geekymon2/github-readme-stats)
 
