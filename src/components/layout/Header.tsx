@@ -12,12 +12,12 @@ export default function Header() {
     {
       key: "2",
       label: "About",
-      onClick: () => (window.location.href = "#about"),
+      onClick: () => (window.location.href = "about"),
     },
     {
       key: "3",
       label: "Contact",
-      onClick: () => (window.location.href = "#contact"),
+      onClick: () => (window.location.href = "/contact"),
     },
     {
       key: "4",

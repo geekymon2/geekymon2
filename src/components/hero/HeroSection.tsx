@@ -30,8 +30,8 @@ const HeroSection = () => {
         <Col xs={24} md={12}>
           <Image
             style={heroImage}
-            src="/hero-image.jpg"
-            alt="Hero Section Image"
+            src="/hero.svg"
+            alt="Hero Image"
             width="100%"
             preview={false}
           />
