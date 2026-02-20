@@ -1,23 +1,26 @@
 import { Layout, Menu } from "antd";
 import { headerStyle, titleStyle, menuStyle } from "./headerStyles";
 import Title from "antd/es/typography/Title";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../constants/routes";
 
 export default function Header() {
+  const navigate = useNavigate();
   const menuItems = [
     {
       key: "1",
       label: "Home",
-      onClick: () => (window.location.href = "/"),
+      onClick: () => navigate(ROUTES.HOME),
     },
     {
       key: "2",
       label: "About",
-      onClick: () => (window.location.href = "about"),
+      onClick: () => navigate(ROUTES.ABOUT),
     },
     {
       key: "3",
       label: "Contact",
-      onClick: () => (window.location.href = "/contact"),
+      onClick: () => navigate(ROUTES.CONTACT),
     },
     {
       key: "4",
