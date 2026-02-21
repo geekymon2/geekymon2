@@ -1,22 +1,41 @@
 import { useState } from "react";
-import { Form, Input, Button, Card, Row, Col, message, Layout } from "antd";
+import { Form, Input, Button, Card, Row, Col, Layout } from "antd";
+import emailjs from "@emailjs/browser";
 
 const { TextArea } = Input;
 
 const Contact = () => {
   const [loading, setLoading] = useState(false);
   const [form] = Form.useForm();
+  const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-  const onFinish = (values: any) => {
+  const sendEmail = () => {
+
+    emailjs
+      .send(
+        serviceId,
+        templateId,
+        form.getFieldsValue(),
+        publicKey,
+      )
+      .then(
+        (result) => {
+          console.log("Success:", result.text);
+          alert("Message Sent Successfully!");
+        },
+        (error) => {
+          console.log("Failed:", error);
+          alert("Failed to Send Message, please try again.");
+        },
+      );
+  };
+
+  const onFinish = () => {
     setLoading(true);
-
-    // Simulate API call
-    setTimeout(() => {
-      console.log("Form Values:", values);
-      message.success("Message sent successfully!");
-      form.resetFields();
-      setLoading(false);
-    }, 1500);
+    sendEmail();
+    setLoading(false);
   };
 
   return (
@@ -47,16 +66,6 @@ const Contact = () => {
                 ]}
               >
                 <Input placeholder="Enter your email address" />
-              </Form.Item>
-
-              <Form.Item
-                label="Subject"
-                name="subject"
-                rules={[
-                  { required: true, message: "Please enter the subject" },
-                ]}
-              >
-                <Input placeholder="Enter subject" />
               </Form.Item>
 
               <Form.Item

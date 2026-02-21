@@ -13,7 +13,7 @@ export const heroTitleStyle: CSSProperties = {
 };
 
 export const heroParagraphStyle: CSSProperties = {
-  fontSize: "26px",
+  fontSize: "24px",
   marginBottom: "24px",
 };
 
