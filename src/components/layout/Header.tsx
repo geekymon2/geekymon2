@@ -19,13 +19,18 @@ export default function Header() {
     },
     {
       key: "3",
-      label: "Contact",
-      onClick: () => navigate(ROUTES.CONTACT),
+      label: "Skills",
+      onClick: () => navigate(ROUTES.SKILLS),
     },
     {
       key: "4",
-      label: "Settings",
-      onClick: () => (window.location.href = "#settings"),
+      label: "Projects",
+      onClick: () => navigate(ROUTES.PROJECTS),
+    },
+    {
+      key: "5",
+      label: "Contact",
+      onClick: () => navigate(ROUTES.CONTACT),
     },
   ];
 

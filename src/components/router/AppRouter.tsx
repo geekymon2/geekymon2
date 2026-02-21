@@ -7,6 +7,8 @@ const AppRouter = () => {
   const HomePage = lazy(() => import("../../pages/home/HomePage"));
   const AboutPage = lazy(() => import("../../pages/about/AboutPage"));
   const ContactPage = lazy(() => import("../../pages/contact/ContactPage"));
+  const SkillsPage = lazy(() => import("../../pages/skills/SkillsPage"));
+  const ProjectsPage = lazy(() => import("../../pages/projects/ProjectsPage"));
 
   return (
     <BrowserRouter>
@@ -15,6 +17,8 @@ const AppRouter = () => {
           <Routes>
             <Route path={ROUTES.HOME} element={<HomePage />} />
             <Route path={ROUTES.ABOUT} element={<AboutPage />} />
+            <Route path={ROUTES.SKILLS} element={<SkillsPage />} />
+            <Route path={ROUTES.PROJECTS} element={<ProjectsPage />} />
             <Route path={ROUTES.CONTACT} element={<ContactPage />} />
           </Routes>
         </AppLayout>

@@ -1,15 +1,5 @@
 import { useState } from "react";
-import {
-  Form,
-  Input,
-  Button,
-  Card,
-  Row,
-  Col,
-  message,
-  Layout,
-  theme,
-} from "antd";
+import { Form, Input, Button, Card, Row, Col, message, Layout } from "antd";
 
 const { TextArea } = Input;
 
@@ -30,7 +20,7 @@ const Contact = () => {
   };
 
   return (
-    <Layout style={{ padding: theme.useToken().token.paddingLG }}>
+    <Layout>
       <Row justify="center">
         <Col xs={24} sm={20} md={16} lg={12}>
           <Card title="Contact Us">

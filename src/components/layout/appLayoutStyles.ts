@@ -1,14 +1,14 @@
-import type { CSSProperties } from 'react';
+import type { CSSProperties } from "react";
 
 export const layoutStyle: CSSProperties = {
-  display: 'flex',
-  flexDirection: 'column',
-  minHeight: '100vh',
+  display: "flex",
+  flexDirection: "column",
+  minHeight: "100vh",
 };
 
 export const innerLayoutStyle: CSSProperties = {
-  display: 'flex',
-  flexDirection: 'row',
+  display: "flex",
+  flexDirection: "row",
 };
 
 export const contentStyle: CSSProperties = {
