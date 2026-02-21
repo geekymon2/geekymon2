@@ -1,4 +1,7 @@
 import type { CSSProperties } from "react";
+import { theme } from "antd";
+
+const token = theme.getDesignToken();
 
 export const layoutStyle: CSSProperties = {
   display: "flex",
@@ -12,5 +15,6 @@ export const innerLayoutStyle: CSSProperties = {
 };
 
 export const contentStyle: CSSProperties = {
+  padding: token.paddingXL,
   flex: 1,
 };

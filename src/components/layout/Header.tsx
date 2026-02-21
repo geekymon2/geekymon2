@@ -1,4 +1,4 @@
-import { Layout, Menu } from "antd";
+import { Flex, Layout, Menu } from "antd";
 import { headerStyle, titleStyle, menuStyle } from "./headerStyles";
 import Title from "antd/es/typography/Title";
 import { useNavigate } from "react-router-dom";
@@ -36,10 +36,17 @@ export default function Header() {
 
   return (
     <Layout.Header style={headerStyle}>
-      <Title level={3} style={titleStyle}>
-        GeekyMon2
-      </Title>
-      <Menu mode="horizontal" items={menuItems} style={menuStyle} />
+      <Flex
+        justify="space-between"
+        gap="middle"
+        align="center"
+        style={{ width: "100%" }}
+      >
+        <Title level={3} style={titleStyle}>
+          GeekyMon2
+        </Title>
+        <Menu mode="horizontal" items={menuItems} style={menuStyle} />
+      </Flex>
     </Layout.Header>
   );
 }

@@ -80,7 +80,7 @@ const lightTheme: ThemeConfig = {
     marginLG: 28,
     boxShadow: "0 4px 12px 0 rgba(15, 23, 42, 0.08)",
     boxShadowSecondary: "0 8px 24px 0 rgba(15, 23, 42, 0.12)",
-    fontFamily: "Iceberg, sans-serif",
+    fontFamily: "sans-serif",
     fontSize: 15,
     fontSizeSM: 13,
     fontSizeLG: 17,
