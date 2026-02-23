@@ -1,11 +1,17 @@
 import { Button, Flex, Layout, Menu } from "antd";
-import { headerStyle, titleStyle, menuStyle } from "./headerStyles";
+import {
+  headerStyle,
+  titleStyle,
+  menuStyle,
+  menuContainerStyle,
+} from "./headerStyles";
 import Title from "antd/es/typography/Title";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../constants/routes";
 import { SunOutlined, MoonOutlined } from "@ant-design/icons";
 import { useTheme } from "../../themes/ThemeContext";
 import { DARK } from "../../constants/themes";
+import { titleContainerStyle } from './headerStyles';
 
 export default function Header() {
   const navigate = useNavigate();
@@ -46,18 +52,13 @@ export default function Header() {
         align="center"
         style={{ width: "100%" }}
       >
-        <Flex>
+        <Flex align="center" style={titleContainerStyle}>
           <Title level={3} style={titleStyle}>
             GeekyMon2
           </Title>
         </Flex>
-        <Flex align="center">
-          <Menu
-            key={theme}
-            mode="horizontal"
-            items={menuItems}
-            style={menuStyle}
-          />
+        <Flex align="center" style={menuContainerStyle}>
+          <Menu mode="horizontal" items={menuItems} style={menuStyle} />
           <Button
             size="large"
             onClick={toggleTheme}
