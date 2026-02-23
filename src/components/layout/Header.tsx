@@ -51,8 +51,13 @@ export default function Header() {
             GeekyMon2
           </Title>
         </Flex>
-        <Flex align="center" gap="large">
-          <Menu mode="horizontal" items={menuItems} style={menuStyle} />
+        <Flex align="center">
+          <Menu
+            key={theme}
+            mode="horizontal"
+            items={menuItems}
+            style={menuStyle}
+          />
           <Button
             size="large"
             onClick={toggleTheme}
