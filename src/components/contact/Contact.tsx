@@ -12,24 +12,14 @@ const Contact = () => {
   const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
   const sendEmail = () => {
-
-    emailjs
-      .send(
-        serviceId,
-        templateId,
-        form.getFieldsValue(),
-        publicKey,
-      )
-      .then(
-        (result) => {
-          console.log("Success:", result.text);
-          alert("Message Sent Successfully!");
-        },
-        (error) => {
-          console.log("Failed:", error);
-          alert("Failed to Send Message, please try again.");
-        },
-      );
+    emailjs.send(serviceId, templateId, form.getFieldsValue(), publicKey).then(
+      (result) => {
+        console.log("Success:", result.text);
+      },
+      (error) => {
+        console.log("Failed:", error);
+      },
+    );
   };
 
   const onFinish = () => {

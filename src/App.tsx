@@ -1,12 +1,14 @@
-import { ConfigProvider } from "antd";
-import { lightTheme } from "./themes";
 import AppRouter from "./components/router/AppRouter";
+import { ThemeProvider } from "./themes/ThemeContext";
+import AntdProvider from "./themes/AntdProvider";
 
 function App() {
   return (
-    <ConfigProvider theme={lightTheme}>
-      <AppRouter />
-    </ConfigProvider>
+    <ThemeProvider>
+      <AntdProvider>
+        <AppRouter />
+      </AntdProvider>
+    </ThemeProvider>
   );
 }
 

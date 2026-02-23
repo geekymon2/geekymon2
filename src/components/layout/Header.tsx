@@ -1,8 +1,11 @@
-import { Flex, Layout, Menu } from "antd";
+import { Button, Flex, Layout, Menu } from "antd";
 import { headerStyle, titleStyle, menuStyle } from "./headerStyles";
 import Title from "antd/es/typography/Title";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../constants/routes";
+import { SunOutlined, MoonOutlined } from "@ant-design/icons";
+import { useTheme } from "../../themes/ThemeContext";
+import { DARK } from "../../constants/themes";
 
 export default function Header() {
   const navigate = useNavigate();
@@ -34,6 +37,7 @@ export default function Header() {
     },
   ];
 
+  const { theme, toggleTheme } = useTheme();
   return (
     <Layout.Header style={headerStyle}>
       <Flex
@@ -42,10 +46,19 @@ export default function Header() {
         align="center"
         style={{ width: "100%" }}
       >
-        <Title level={3} style={titleStyle}>
-          GeekyMon2
-        </Title>
-        <Menu mode="horizontal" items={menuItems} style={menuStyle} />
+        <Flex>
+          <Title level={3} style={titleStyle}>
+            GeekyMon2
+          </Title>
+        </Flex>
+        <Flex align="center" gap="large">
+          <Menu mode="horizontal" items={menuItems} style={menuStyle} />
+          <Button
+            size="large"
+            onClick={toggleTheme}
+            icon={theme === DARK ? <SunOutlined /> : <MoonOutlined />}
+          ></Button>
+        </Flex>
       </Flex>
     </Layout.Header>
   );
