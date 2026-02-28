@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/GridLegacy";
+import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -50,14 +50,14 @@ export default function AppFooter() {
     >
       <Container sx={{ my: 8, display: "flex" }}>
         <Grid container spacing={5}>
-          <Grid item xs={6} sm={4} md={3}>
+          <Grid size={{ xs: 6, sm: 4, md: 3 }}>
             <Grid
               container
               direction="column"
               spacing={2}
               sx={{ justifyContent: "flex-end", height: 120 }}
             >
-              <Grid item sx={{ display: "flex" }}>
+              <Grid size={{ xs: 12 }} sx={{ display: "flex" }}>
                 <Box component="a" href="https://mui.com/" sx={iconStyle}>
                   <img
                     src="/static/themes/onepirate/appFooterFacebook.png"
@@ -71,15 +71,13 @@ export default function AppFooter() {
                   />
                 </Box>
               </Grid>
-              <Grid item>
+              <Grid size={{ xs: 12 }} sx={{ display: "flex" }}>
                 <Copyright />
               </Grid>
             </Grid>
           </Grid>
-          <Grid item xs={6} sm={4} md={2}>
-            <Typography variant="h6">
-              Legal
-            </Typography>
+          <Grid size={{ xs: 6, sm: 4, md: 2 }}>
+            <Typography variant="h6">Legal</Typography>
             <Box component="ul" sx={{ m: 0, listStyle: "none", p: 0 }}>
               <Box component="li" sx={{ py: 0.5 }}>
                 <Link href="/premium-themes/onepirate/terms/">Terms</Link>
@@ -89,10 +87,8 @@ export default function AppFooter() {
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={6} sm={8} md={4}>
-            <Typography variant="h6">
-              Language
-            </Typography>
+          <Grid size={{ xs: 6, sm: 8, md: 4 }}>
+            <Typography variant="h6">Language</Typography>
             <TextField
               select
               size="medium"
@@ -111,7 +107,7 @@ export default function AppFooter() {
               ))}
             </TextField>
           </Grid>
-          <Grid item>
+          <Grid size={{ xs: 12 }} sx={{ mt: 2 }}>
             <Typography variant="caption">
               {"Icons made by "}
               <Link
