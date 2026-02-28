@@ -1,13 +1,11 @@
 import AppRouter from "./components/router/AppRouter";
-import { ThemeProvider } from "./themes/ThemeContext";
-import AntdProvider from "./themes/AntdProvider";
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "./themes/theme";
 
 function App() {
   return (
-    <ThemeProvider>
-      <AntdProvider>
-        <AppRouter />
-      </AntdProvider>
+    <ThemeProvider theme={theme}>
+      <AppRouter />
     </ThemeProvider>
   );
 }

@@ -1,17 +1,14 @@
-import { Layout } from "antd";
-
-import { layoutStyle, contentStyle, innerLayoutStyle } from "./appLayoutStyles";
 import Header from "./Header";
 import Footer from "./Footer";
+import React from "react";
+import Hero from "../hero/Hero";
 
-export default function AppLayout({ children }: { children: React.ReactNode }) {
+export default function AppLayout({}: { children: React.ReactNode }) {
   return (
-    <Layout style={layoutStyle}>
+    <React.Fragment>
       <Header />
-      <Layout style={innerLayoutStyle}>
-        <Layout.Content style={contentStyle}>{children}</Layout.Content>
-      </Layout>
+      <Hero />
       <Footer />
-    </Layout>
+    </React.Fragment>
   );
 }
