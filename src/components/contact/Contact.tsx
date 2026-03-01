@@ -1,89 +1,105 @@
-import { useState } from "react";
-import { Form, Input, Button, Card, Row, Col, Layout } from "antd";
-import emailjs from "@emailjs/browser";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/GridLegacy";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import TextField from "@mui/material/TextField";
+import Snackbar from "@mui/material/Snackbar";
+import Button from "@mui/material/Button";
 
-const { TextArea } = Input;
+function Contact() {
+  const [open, setOpen] = React.useState(false);
 
-const Contact = () => {
-  const [loading, setLoading] = useState(false);
-  const [form] = Form.useForm();
-  const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-  const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-  const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-  const sendEmail = () => {
-    emailjs.send(serviceId, templateId, form.getFieldsValue(), publicKey).then(
-      (result) => {
-        console.log("Success:", result.text);
-      },
-      (error) => {
-        console.log("Failed:", error);
-      },
-    );
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setOpen(true);
   };
 
-  const onFinish = () => {
-    setLoading(true);
-    sendEmail();
-    setLoading(false);
+  const handleClose = () => {
+    setOpen(false);
   };
 
   return (
-    <Layout>
-      <Row justify="center">
-        <Col xs={24} sm={20} md={16} lg={12}>
-          <Card title="Contact Us">
-            <Form
-              form={form}
-              layout="vertical"
-              onFinish={onFinish}
-              requiredMark={false}
+    <Container component="section" sx={{ mt: 10, display: "flex" }}>
+      <Grid container>
+        <Grid item xs={12} md={6} sx={{ zIndex: 1 }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              bgcolor: "warning.main",
+              py: 8,
+              px: 3,
+            }}
+          >
+            <Box
+              component="form"
+              onSubmit={handleSubmit}
+              sx={{ maxWidth: 400 }}
             >
-              <Form.Item
-                label="Full Name"
-                name="name"
-                rules={[{ required: true, message: "Please enter your name" }]}
+              <Typography variant="h2" component="h2" gutterBottom>
+                Receive offers
+              </Typography>
+              <Typography variant="h5">
+                Taste the holidays of the everyday close to home.
+              </Typography>
+              <TextField
+                placeholder="Your email"
+                variant="standard"
+                sx={{ width: "100%", mt: 3, mb: 2 }}
+              />
+              <Button
+                type="submit"
+                color="primary"
+                variant="contained"
+                sx={{ width: "100%" }}
               >
-                <Input placeholder="Enter your full name" />
-              </Form.Item>
-
-              <Form.Item
-                label="Email"
-                name="email"
-                rules={[
-                  { required: true, message: "Please enter your email" },
-                  { type: "email", message: "Please enter a valid email" },
-                ]}
-              >
-                <Input placeholder="Enter your email address" />
-              </Form.Item>
-
-              <Form.Item
-                label="Message"
-                name="message"
-                rules={[
-                  { required: true, message: "Please enter your message" },
-                ]}
-              >
-                <TextArea rows={5} placeholder="Write your message..." />
-              </Form.Item>
-
-              <Form.Item>
-                <Button
-                  type="primary"
-                  htmlType="submit"
-                  block
-                  loading={loading}
-                >
-                  Send Message
-                </Button>
-              </Form.Item>
-            </Form>
-          </Card>
-        </Col>
-      </Row>
-    </Layout>
+                Keep me updated
+              </Button>
+            </Box>
+          </Box>
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{ display: { md: "block", xs: "none" }, position: "relative" }}
+        >
+          <Box
+            sx={{
+              position: "absolute",
+              top: -67,
+              left: -67,
+              right: 0,
+              bottom: 0,
+              width: "100%",
+              background:
+                "url(/static/themes/onepirate/productCTAImageDots.png)",
+            }}
+          />
+          <Box
+            component="img"
+            src="https://images.unsplash.com/photo-1527853787696-f7be74f2e39a?auto=format&fit=crop&w=750"
+            alt="call to action"
+            sx={{
+              position: "absolute",
+              top: -28,
+              left: -28,
+              right: 0,
+              bottom: 0,
+              width: "100%",
+              maxWidth: 600,
+            }}
+          />
+        </Grid>
+      </Grid>
+      <Snackbar
+        open={open}
+        closeFunc={handleClose}
+        message="We will send you our best offers, once a week."
+      />
+    </Container>
   );
-};
+}
 
 export default Contact;

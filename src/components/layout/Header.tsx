@@ -3,7 +3,6 @@ import Link from "@mui/material/Link";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 
-
 const rightLink = {
   fontSize: 16,
   color: "common.white",
@@ -23,7 +22,7 @@ function Header() {
             href="/premium-themes/onepirate/"
             sx={{ fontSize: 24 }}
           >
-            {"onepirate"}
+            {"geekymon2"}
           </Link>
           <Box sx={{ flex: 1, display: "flex", justifyContent: "flex-end" }}>
             <Link
