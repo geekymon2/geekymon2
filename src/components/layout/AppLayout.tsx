@@ -3,7 +3,7 @@ import Footer from "./Footer";
 import React from "react";
 import Hero from "../hero/Hero";
 
-export default function AppLayout({}: { children: React.ReactNode }) {
+export default function AppLayout() {
   return (
     <React.Fragment>
       <Header />
