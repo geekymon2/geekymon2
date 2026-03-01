@@ -1,47 +1,21 @@
 import Box from "@mui/material/Box";
-import Link from "@mui/material/Link";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-
-const rightLink = {
-  fontSize: 16,
-  color: "common.white",
-  ml: 3,
-};
+import { Title } from "./headerStyles";
 
 function Header() {
   return (
     <div>
       <AppBar position="fixed" elevation={0}>
-        <Toolbar sx={{ justifyContent: "space-between" }}>
+        <Toolbar
+          sx={{
+            justifyContent: "space-between",
+          }}
+        >
           <Box sx={{ flex: 1 }} />
-          <Link
-            variant="h6"
-            underline="none"
-            color="inherit"
-            href="/premium-themes/onepirate/"
-            sx={{ fontSize: 24 }}
-          >
-            {"geekymon2"}
-          </Link>
+          <Title>geekymon2</Title>
           <Box sx={{ flex: 1, display: "flex", justifyContent: "flex-end" }}>
-            <Link
-              color="inherit"
-              variant="h6"
-              underline="none"
-              href="/premium-themes/onepirate/sign-in/"
-              sx={rightLink}
-            >
-              {"Sign In"}
-            </Link>
-            <Link
-              variant="h6"
-              underline="none"
-              href="/premium-themes/onepirate/sign-up/"
-              sx={{ ...rightLink, color: "secondary.main" }}
-            >
-              {"Sign Up"}
-            </Link>
+            <Title>Contact Me</Title>
           </Box>
         </Toolbar>
       </AppBar>

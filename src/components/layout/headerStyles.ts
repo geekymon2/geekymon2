@@ -1,29 +1,11 @@
-export const headerStyle = {
-  color: "white",
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-};
+import Typography from "@mui/material/Typography";
+import { styled, type Theme } from "@mui/material/styles";
 
-export const titleStyle = {
-  fontSize: "22px",
-  fontWeight: "bold",
-};
-
-export const titleContainerStyle = {
-  flex: "0 0 auto",
-};
-
-export const menuStyle = {
-  background: "transparent",
-  border: "none",
-  width: "100%",
-  flex: "1 1 auto",
-};
-
-export const menuContainerStyle = {
-  flex: "1 1 auto",
-  display: "flex",
-  justifyContent: "flex-end",
-  minWidth: 0,
-};
+export const Title = styled(Typography)(({ theme }: { theme: Theme }) => ({
+  fontSize: theme.typography.h6.fontSize,
+  fontWeight: theme.typography.h6.fontWeight,
+  lineHeight: theme.typography.h6.lineHeight,
+  fontFamily: theme.typography.h6.fontFamily,
+  textTransform: theme.typography.h6.textTransform,
+  color: theme.palette.common.white,
+}));
