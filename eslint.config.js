@@ -5,13 +5,26 @@ import globals from "globals";
 import reactHooks from "eslint-plugin-react-hooks";
 
 export default [
+  {
+    ignores: [
+      "dist",
+      "node_modules",
+      "**/*.d.ts",
+      "src/**/*.stories.*",
+      "src/**/*.test.*",
+      "src/vite-env.d.ts",
+      "eslint.config.js",
+      "prettier.config.js",
+      "vite.config.ts",
+    ],
+  },
   js.configs.recommended,
   ...ts.configs.recommendedTypeChecked,
   {
     files: ["src/**/*.{js,jsx,ts,tsx}"],
     languageOptions: {
       parserOptions: {
-        project: "./tsconfig.json",
+        project: "./tsconfig.eslint.json",
         tsconfigRootDir: import.meta.dirname,
         ecmaVersion: "latest",
         sourceType: "module",

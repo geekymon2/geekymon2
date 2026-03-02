@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import React from "react";
 
-function Copyright() {
+function Copyright(): React.ReactElement {
   return (
     <React.Fragment>
       {"© "}
@@ -42,7 +42,7 @@ const LANGUAGES = [
   },
 ];
 
-export default function AppFooter() {
+export default function AppFooter(): React.ReactElement {
   return (
     <Typography component="footer" sx={{ display: "flex", bgcolor: "secondary.light" }}>
       <Container sx={{ my: 8, display: "flex" }}>
@@ -86,16 +86,20 @@ export default function AppFooter() {
               variant="standard"
               title="Language selection"
               aria-label="Language selection"
-              SelectProps={{
-                native: true,
+              slotProps={{
+                select: {
+                  native: true,
+                },
               }}
               sx={{ mt: 1, width: 150 }}
             >
-              {LANGUAGES.map((language) => (
-                <option value={language.code} key={language.code}>
-                  {language.name}
-                </option>
-              ))}
+              {LANGUAGES.map((language): React.ReactElement => {
+                return (
+                  <option value={language.code} key={language.code}>
+                    {language.name}
+                  </option>
+                );
+              })}
             </TextField>
           </Grid>
           <Grid size={{ xs: 12 }} sx={{ mt: 2 }}>
