@@ -20,6 +20,8 @@ export default [
   },
   js.configs.recommended,
   ...ts.configs.recommendedTypeChecked,
+  react.configs.flat.recommended,
+  react.configs.flat["jsx-runtime"],
   {
     files: ["src/**/*.{js,jsx,ts,tsx}"],
     languageOptions: {
@@ -36,6 +38,11 @@ export default [
     plugins: {
       react,
       "react-hooks": reactHooks,
+    },
+    settings: {
+      react: {
+        version: "detect",
+      },
     },
     rules: {
       "react/react-in-jsx-scope": "off",
