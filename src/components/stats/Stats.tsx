@@ -10,7 +10,23 @@ function Stats() {
       sx={{ display: "flex", overflow: "hidden", bgcolor: "secondary.light" }}
     >
       <Container sx={{ mt: 15, mb: 30, position: "relative" }}>
-        <Box display="flex" justifyContent="center" flexDirection="row">
+        <Box
+          component="img"
+          src="/curvy-lines.png"
+          alt="curvy lines"
+          sx={{ pointerEvents: "none", position: "absolute", top: -180 }}
+        />
+        <Box
+          sx={{
+            display: "grid",
+            gap: 2,
+            gridTemplateColumns: {
+              xs: "1fr",
+              sm: "repeat(2, 1fr)",
+              md: "repeat(4, 1fr)",
+            },
+          }}
+        >
           <Box sx={item}>
             <Box component="img" src="/commit-git.png" alt="suitcase" sx={iconStyle} />
             <Typography variant="h6" sx={{ my: 5 }}>
