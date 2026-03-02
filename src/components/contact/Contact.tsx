@@ -32,11 +32,7 @@ function Contact() {
               px: 3,
             }}
           >
-            <Box
-              component="form"
-              onSubmit={handleSubmit}
-              sx={{ maxWidth: 400 }}
-            >
+            <Box component="form" onSubmit={handleSubmit} sx={{ maxWidth: 400 }}>
               <Typography variant="h2" component="h2" gutterBottom>
                 Receive offers
               </Typography>
@@ -48,12 +44,7 @@ function Contact() {
                 variant="standard"
                 sx={{ width: "100%", mt: 3, mb: 2 }}
               />
-              <Button
-                type="submit"
-                color="primary"
-                variant="contained"
-                sx={{ width: "100%" }}
-              >
+              <Button type="submit" color="primary" variant="contained" sx={{ width: "100%" }}>
                 Keep me updated
               </Button>
             </Box>
@@ -73,8 +64,7 @@ function Contact() {
               right: 0,
               bottom: 0,
               width: "100%",
-              background:
-                "url(/static/themes/onepirate/productCTAImageDots.png)",
+              background: "url(/static/themes/onepirate/productCTAImageDots.png)",
             }}
           />
           <Box

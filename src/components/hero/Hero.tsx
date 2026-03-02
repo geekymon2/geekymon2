@@ -14,12 +14,7 @@ export default function ProductHero() {
       <Typography color="inherit" align="center" variant="h2">
         Engineer. Problem Solver. Creator.
       </Typography>
-      <Typography
-        color="inherit"
-        align="center"
-        variant="h5"
-        sx={{ mb: 4, mt: { xs: 4, sm: 10 } }}
-      >
+      <Typography color="inherit" align="center" variant="h5" sx={{ mb: 4, mt: { xs: 4, sm: 10 } }}>
         Turning ideas into user-friendly, high performance products.
       </Typography>
       <Button

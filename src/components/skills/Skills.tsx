@@ -69,8 +69,7 @@ export default function Skills() {
           <Card style={cardStyle} title={<Title level={4}>{category}</Title>}>
             {items.map((skill) => (
               <Flex vertical key={skill.name} style={{ marginBottom: 12 }}>
-                {skill.name}: {skill.years} years{" "}
-                {skill.tags && `(${skill.tags.join(", ")})`}
+                {skill.name}: {skill.years} years {skill.tags && `(${skill.tags.join(", ")})`}
                 <Progress percent={skill.level} />
               </Flex>
             ))}

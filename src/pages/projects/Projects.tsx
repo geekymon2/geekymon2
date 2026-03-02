@@ -140,12 +140,7 @@ export default function Projects() {
                 color: "common.white",
               }}
             >
-              <Typography
-                component="h3"
-                variant="h6"
-                color="inherit"
-                className="imageTitle"
-              >
+              <Typography component="h3" variant="h6" color="inherit" className="imageTitle">
                 {image.title}
                 <div className="imageMarked" />
               </Typography>

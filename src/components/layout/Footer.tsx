@@ -44,10 +44,7 @@ const LANGUAGES = [
 
 export default function AppFooter() {
   return (
-    <Typography
-      component="footer"
-      sx={{ display: "flex", bgcolor: "secondary.light" }}
-    >
+    <Typography component="footer" sx={{ display: "flex", bgcolor: "secondary.light" }}>
       <Container sx={{ my: 8, display: "flex" }}>
         <Grid container spacing={5}>
           <Grid size={{ xs: 6, sm: 4, md: 3 }}>
@@ -59,16 +56,10 @@ export default function AppFooter() {
             >
               <Grid size={{ xs: 12 }} sx={{ display: "flex" }}>
                 <Box component="a" href="https://mui.com/" sx={iconStyle}>
-                  <img
-                    src="/static/themes/onepirate/appFooterFacebook.png"
-                    alt="Facebook"
-                  />
+                  <img src="/static/themes/onepirate/appFooterFacebook.png" alt="Facebook" />
                 </Box>
                 <Box component="a" href="https://x.com/MUI_hq" sx={iconStyle}>
-                  <img
-                    src="/static/themes/onepirate/appFooterTwitter.png"
-                    alt="X"
-                  />
+                  <img src="/static/themes/onepirate/appFooterTwitter.png" alt="X" />
                 </Box>
               </Grid>
               <Grid size={{ xs: 12 }} sx={{ display: "flex" }}>
@@ -110,19 +101,11 @@ export default function AppFooter() {
           <Grid size={{ xs: 12 }} sx={{ mt: 2 }}>
             <Typography variant="caption">
               {"Icons made by "}
-              <Link
-                href="https://www.freepik.com"
-                rel="sponsored"
-                title="Freepik"
-              >
+              <Link href="https://www.freepik.com" rel="sponsored" title="Freepik">
                 Freepik
               </Link>
               {" from "}
-              <Link
-                href="https://www.flaticon.com"
-                rel="sponsored"
-                title="Flaticon"
-              >
+              <Link href="https://www.flaticon.com" rel="sponsored" title="Flaticon">
                 www.flaticon.com
               </Link>
               {" is licensed by "}
