@@ -24,7 +24,7 @@ export default [
     files: ["src/**/*.{js,jsx,ts,tsx}"],
     languageOptions: {
       parserOptions: {
-        project: "./tsconfig.eslint.json",
+        project: new URL("./tsconfig.eslint.json", import.meta.url).pathname,
         tsconfigRootDir: import.meta.dirname,
         ecmaVersion: "latest",
         sourceType: "module",
