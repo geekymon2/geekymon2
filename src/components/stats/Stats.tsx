@@ -1,86 +1,51 @@
-import type { Theme } from "@mui/material/styles";
-import type { SxProps } from "@mui/system";
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/GridLegacy";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
+import { iconStyle, item } from "./statsStyle";
 
-const item: SxProps<Theme> = {
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  px: 5,
-};
-
-function ProductValues() {
+function Stats() {
   return (
     <Box
       component="section"
       sx={{ display: "flex", overflow: "hidden", bgcolor: "secondary.light" }}
     >
-      <Container sx={{ mt: 15, mb: 30, display: "flex", position: "relative" }}>
-        <Box
-          component="img"
-          src="/static/themes/onepirate/productCurvyLines.png"
-          alt="curvy lines"
-          sx={{ pointerEvents: "none", position: "absolute", top: -180 }}
-        />
-        <Grid container spacing={5}>
-          <Grid item xs={12} md={4}>
-            <Box sx={item}>
-              <Box
-                component="img"
-                src="/static/themes/onepirate/productValues1.svg"
-                alt="suitcase"
-                sx={{ height: 55 }}
-              />
-              <Typography variant="h6" sx={{ my: 5 }}>
-                The best luxury hotels
-              </Typography>
-              <Typography variant="h5">
-                {"From the latest trendy boutique hotel to the iconic palace with XXL pool"}
-                {", go for a mini-vacation just a few subway stops away from your home."}
-              </Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <Box sx={item}>
-              <Box
-                component="img"
-                src="/static/themes/onepirate/productValues2.svg"
-                alt="graph"
-                sx={{ height: 55 }}
-              />
-              <Typography variant="h6" sx={{ my: 5 }}>
-                New experiences
-              </Typography>
-              <Typography variant="h5">
-                {"Privatize a pool, take a Japanese bath or wake up in 900m2 of garden… "}
-                {"your Sundays will not be alike."}
-              </Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <Box sx={item}>
-              <Box
-                component="img"
-                src="/static/themes/onepirate/productValues3.svg"
-                alt="clock"
-                sx={{ height: 55 }}
-              />
-              <Typography variant="h6" sx={{ my: 5 }}>
-                Exclusive rates
-              </Typography>
-              <Typography variant="h5">
-                {"By registering, you will access specially negotiated rates "}
-                {"that you will not find anywhere else."}
-              </Typography>
-            </Box>
-          </Grid>
-        </Grid>
+      <Container sx={{ mt: 15, mb: 30, position: "relative" }}>
+        <Box display="flex" justifyContent="center" flexDirection="row">
+          <Box sx={item}>
+            <Box component="img" src="/commit-git.png" alt="suitcase" sx={iconStyle} />
+            <Typography variant="h6" sx={{ my: 5 }}>
+              Total Commits
+            </Typography>
+            <Typography variant="h5">{"1212"}</Typography>
+          </Box>
+
+          <Box sx={item}>
+            <Box component="img" src="/add-friend.png" alt="graph" sx={iconStyle} />
+            <Typography variant="h6" sx={{ my: 5 }}>
+              Github Followers
+            </Typography>
+            <Typography variant="h5">{"1212"}</Typography>
+          </Box>
+
+          <Box sx={item}>
+            <Box component="img" src="/two-way-street.png" alt="clock" sx={iconStyle} />
+            <Typography variant="h6" sx={{ my: 5 }}>
+              Github Traffic
+            </Typography>
+            <Typography variant="h5">{"1212"}</Typography>
+          </Box>
+
+          <Box sx={item}>
+            <Box component="img" src="/branches.png" alt="clock" sx={iconStyle} />
+            <Typography variant="h6" sx={{ my: 5 }}>
+              Page Views
+            </Typography>
+            <Typography variant="h5">{"1212"}</Typography>
+          </Box>
+        </Box>
       </Container>
     </Box>
   );
 }
 
-export default ProductValues;
+export default Stats;
