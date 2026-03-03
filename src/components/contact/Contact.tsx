@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
-function Contact() {
+export default function Contact() {
   return (
     <Container component="section" sx={{ mt: 10, display: "flex" }}>
       <Grid container>
@@ -73,5 +73,3 @@ function Contact() {
     </Container>
   );
 }
-
-export default Contact;

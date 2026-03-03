@@ -3,7 +3,7 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { iconStyle, item } from "./statsStyle";
 
-function Stats() {
+export default function Stats() {
   return (
     <Box
       component="section"
@@ -32,7 +32,7 @@ function Stats() {
             <Typography variant="h6" sx={{ my: 5 }}>
               Total Commits
             </Typography>
-            <Typography variant="h5">{"1212"}</Typography>
+            <Typography variant="h5">`1212`</Typography>
           </Box>
 
           <Box sx={item}>
@@ -40,7 +40,7 @@ function Stats() {
             <Typography variant="h6" sx={{ my: 5 }}>
               Github Followers
             </Typography>
-            <Typography variant="h5">{"1212"}</Typography>
+            <Typography variant="h5">`1212`</Typography>
           </Box>
 
           <Box sx={item}>
@@ -48,7 +48,7 @@ function Stats() {
             <Typography variant="h6" sx={{ my: 5 }}>
               Github Traffic
             </Typography>
-            <Typography variant="h5">{"1212"}</Typography>
+            <Typography variant="h5">`1212`</Typography>
           </Box>
 
           <Box sx={item}>
@@ -56,12 +56,10 @@ function Stats() {
             <Typography variant="h6" sx={{ my: 5 }}>
               Page Views
             </Typography>
-            <Typography variant="h5">{"1212"}</Typography>
+            <Typography variant="h5">`1212`</Typography>
           </Box>
         </Box>
       </Container>
     </Box>
   );
 }
-
-export default Stats;

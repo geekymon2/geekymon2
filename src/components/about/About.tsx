@@ -50,7 +50,7 @@ const About = () => {
           display="flex"
           flexDirection={{ xs: "column", md: "row" }}
           gap={6}
-          alignItems={"flex-start"}
+          alignItems="flex-start"
         >
           <Box sx={item}>
             <Box sx={number}>1.</Box>
