@@ -1,75 +1,46 @@
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/GridLegacy";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
+import Alert from "@mui/material/Alert";
+import theme from "../../themes/theme";
 
 export default function Contact() {
   return (
-    <Container component="section" sx={{ mt: 10, display: "flex" }}>
-      <Grid container>
-        <Grid item xs={12} md={6} sx={{ zIndex: 1 }}>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              bgcolor: "warning.main",
-              py: 8,
-              px: 3,
-            }}
-          >
-            <Box component="form" sx={{ maxWidth: 400 }}>
-              <Typography variant="h2" component="h2" gutterBottom>
-                Receive offers
-              </Typography>
-              <Typography variant="h5">
-                Taste the holidays of the everyday close to home.
-              </Typography>
-              <TextField
-                placeholder="Your email"
-                variant="standard"
-                sx={{ width: "100%", mt: 3, mb: 2 }}
-              />
-              <Button type="submit" color="primary" variant="contained" sx={{ width: "100%" }}>
-                Keep me updated
-              </Button>
-            </Box>
-          </Box>
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          md={6}
-          sx={{ display: { md: "block", xs: "none" }, position: "relative" }}
-        >
-          <Box
-            sx={{
-              position: "absolute",
-              top: -67,
-              left: -67,
-              right: 0,
-              bottom: 0,
-              width: "100%",
-              background: "url(/static/themes/onepirate/productCTAImageDots.png)",
-            }}
-          />
-          <Box
-            component="img"
-            src="https://images.unsplash.com/photo-1527853787696-f7be74f2e39a?auto=format&fit=crop&w=750"
-            alt="call to action"
-            sx={{
-              position: "absolute",
-              top: -28,
-              left: -28,
-              right: 0,
-              bottom: 0,
-              width: "100%",
-              maxWidth: 600,
-            }}
-          />
-        </Grid>
-      </Grid>
-    </Container>
+    <Box
+      component="section"
+      sx={{
+        py: 12,
+        bgcolor: theme.palette.background.paper,
+      }}
+    >
+      <Container maxWidth="sm">
+        <Typography variant="h4" gutterBottom>
+          Contact Me
+        </Typography>
+        <Typography variant="h6" color="text.secondary" gutterBottom>
+          Feel free to reach out for collaborations, questions, or just to say hi!
+        </Typography>
+
+        <Box component="form" sx={{ mt: 4 }}>
+          <Stack spacing={3}>
+            <TextField label="NAME" name="name" fullWidth required />
+            <TextField label="EMAIL" name="email" type="email" fullWidth required />
+            <TextField label="MESSSAGE" name="message" fullWidth multiline rows={5} required />
+            <Button type="submit" variant="contained" size="large">
+              Send Message
+            </Button>
+          </Stack>
+        </Box>
+
+        {
+          <Alert severity="success" sx={{ mt: 3 }}>
+            Your message has been sent!
+          </Alert>
+        }
+      </Container>
+    </Box>
   );
 }
