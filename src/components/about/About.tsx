@@ -66,8 +66,8 @@ const About = () => {
             <Box component="img" src="/cloud-computing.png" alt="cloud" sx={image} />
             <Typography variant="h5" align="justify">
               I specialise in building modern cloud-native solutions using technologies like React,
-              // Angular, .NET, Java, Node.js, and cloud platforms. My expertise spans frontend,
-              backend, // APIs, system architecture, and platform modernisation.
+              Angular, .NET, Java, Node.js, and cloud platforms. My expertise spans frontend,
+              backend, APIs, system architecture, and platform modernisation.
             </Typography>
           </Box>
           <Box sx={item}>

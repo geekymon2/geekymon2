@@ -1,24 +1,11 @@
-import * as React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/GridLegacy";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
-import Snackbar from "@mui/material/Snackbar";
 import Button from "@mui/material/Button";
 
 function Contact() {
-  const [open, setOpen] = React.useState(false);
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   return (
     <Container component="section" sx={{ mt: 10, display: "flex" }}>
       <Grid container>
@@ -32,7 +19,7 @@ function Contact() {
               px: 3,
             }}
           >
-            <Box component="form" onSubmit={handleSubmit} sx={{ maxWidth: 400 }}>
+            <Box component="form" sx={{ maxWidth: 400 }}>
               <Typography variant="h2" component="h2" gutterBottom>
                 Receive offers
               </Typography>
@@ -83,11 +70,6 @@ function Contact() {
           />
         </Grid>
       </Grid>
-      <Snackbar
-        open={open}
-        closeFunc={handleClose}
-        message="We will send you our best offers, once a week."
-      />
     </Container>
   );
 }
