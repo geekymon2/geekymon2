@@ -1,130 +1,77 @@
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
 import React from "react";
-
-function Copyright(): React.ReactElement {
-  return (
-    <React.Fragment>
-      {"© "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-    </React.Fragment>
-  );
-}
-
-const iconStyle = {
-  width: 48,
-  height: 48,
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  backgroundColor: "warning.main",
-  mr: 1,
-  "&:hover": {
-    bgcolor: "warning.dark",
-  },
-};
-
-const LANGUAGES = [
-  {
-    code: "en-US",
-    name: "English",
-  },
-  {
-    code: "fr-FR",
-    name: "Français",
-  },
-];
+import Stack from "@mui/material/Stack";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import XIcon from "@mui/icons-material/X";
 
 export default function AppFooter(): React.ReactElement {
   return (
-    <Typography component="footer" sx={{ display: "flex", bgcolor: "secondary.light" }}>
-      <Container sx={{ my: 8, display: "flex" }}>
-        <Grid container spacing={5}>
-          <Grid size={{ xs: 6, sm: 4, md: 3 }}>
-            <Grid
-              container
-              direction="column"
-              spacing={2}
-              sx={{ justifyContent: "flex-end", height: 120 }}
-            >
-              <Grid size={{ xs: 12 }} sx={{ display: "flex" }}>
-                <Box component="a" href="https://mui.com/" sx={iconStyle}>
-                  <img src="/static/themes/onepirate/appFooterFacebook.png" alt="Facebook" />
-                </Box>
-                <Box component="a" href="https://x.com/MUI_hq" sx={iconStyle}>
-                  <img src="/static/themes/onepirate/appFooterTwitter.png" alt="X" />
-                </Box>
-              </Grid>
-              <Grid size={{ xs: 12 }} sx={{ display: "flex" }}>
-                <Copyright />
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid size={{ xs: 6, sm: 4, md: 2 }}>
-            <Typography variant="h6">Legal</Typography>
-            <Box component="ul" sx={{ m: 0, listStyle: "none", p: 0 }}>
-              <Box component="li" sx={{ py: 0.5 }}>
-                <Link href="/premium-themes/onepirate/terms/">Terms</Link>
-              </Box>
-              <Box component="li" sx={{ py: 0.5 }}>
-                <Link href="/premium-themes/onepirate/privacy/">Privacy</Link>
-              </Box>
-            </Box>
-          </Grid>
-          <Grid size={{ xs: 6, sm: 8, md: 4 }}>
-            <Typography variant="h6">Language</Typography>
-            <TextField
-              select
-              size="medium"
-              variant="standard"
-              title="Language selection"
-              aria-label="Language selection"
-              slotProps={{
-                select: {
-                  native: true,
-                },
-              }}
-              sx={{ mt: 1, width: 150 }}
-            >
-              {LANGUAGES.map((language): React.ReactElement => {
-                return (
-                  <option value={language.code} key={language.code}>
-                    {language.name}
-                  </option>
-                );
-              })}
-            </TextField>
-          </Grid>
-          <Grid size={{ xs: 12 }} sx={{ mt: 2 }}>
-            <Typography variant="caption">
-              {"Icons made by "}
-              <Link href="https://www.freepik.com" rel="sponsored" title="Freepik">
-                Freepik
-              </Link>
-              {" from "}
-              <Link href="https://www.flaticon.com" rel="sponsored" title="Flaticon">
-                www.flaticon.com
-              </Link>
-              {" is licensed by "}
+    <Box
+      component="footer"
+      sx={{ bgcolor: "primary.main", py: 6, color: "primary.contrastText", pt: 2, pb: 2 }}
+    >
+      <Container maxWidth="lg">
+        <Stack
+          direction={{ xs: "column", sm: "row" }}
+          justifyContent="space-between"
+          alignItems={{ xs: "flex-start", sm: "center" }}
+          spacing={{ xs: 4, sm: 0 }}
+          mb={2}
+        >
+          {/* Socials + Copyright */}
+          <Stack spacing={2}>
+            <Stack direction="row" spacing={1}>
               <Link
-                href="https://creativecommons.org/licenses/by/3.0/"
-                title="Creative Commons BY 3.0"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="https://www.facebook.com/geekymon2/"
+                aria-label="Facebook"
+                color="inherit"
               >
-                CC 3.0 BY
+                <FacebookIcon />
               </Link>
+              <Link href="https://x.com/geekymon2/" aria-label="X/Twitter" color="inherit">
+                <XIcon />
+              </Link>
+            </Stack>
+            <Typography variant="body2" color="inherit">
+              &copy; {new Date().getFullYear()} geekymon2. All rights reserved.
             </Typography>
-          </Grid>
-        </Grid>
+          </Stack>
+
+          {/* Legal */}
+          <Stack spacing={0.5}>
+            <Typography variant="h6" color="inherit">
+              Legal
+            </Typography>
+            <Stack component="ul" spacing={0.5} sx={{ listStyle: "none", p: 0, m: 0 }}>
+              <li>
+                <Link href="/terms" color="inherit" underline="hover">
+                  Terms
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy" color="inherit" underline="hover">
+                  Privacy
+                </Link>
+              </li>
+            </Stack>
+          </Stack>
+        </Stack>
+
+        {/* Bottom section: Icon credit */}
+        <Typography variant="caption" color="inherit">
+          Icons made by{" "}
+          <Link href="https://www.freepik.com" color="inherit" rel="sponsored" target="_blank">
+            Freepik
+          </Link>{" "}
+          from{" "}
+          <Link href="https://www.flaticon.com" color="inherit" rel="sponsored" target="_blank">
+            www.flaticon.com
+          </Link>{" "}
+        </Typography>
       </Container>
-    </Typography>
+    </Box>
   );
 }
