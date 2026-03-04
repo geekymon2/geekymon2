@@ -5,6 +5,7 @@ import Stats from "../stats/Stats";
 import Projects from "../projects/Projects";
 import Contact from "../contact/Contact";
 import About from "../about/About";
+import ContactBanner from "../contact/ContactBanner";
 
 export default function AppLayout(): React.ReactElement {
   return (
@@ -14,6 +15,7 @@ export default function AppLayout(): React.ReactElement {
       <Stats />
       <Projects />
       <About />
+      <ContactBanner />
       <Contact />
       <Footer />
     </>

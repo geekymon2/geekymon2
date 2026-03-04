@@ -12,7 +12,7 @@ export default function Contact() {
     <Box
       component="section"
       sx={{
-        py: 12,
+        py: 2,
         bgcolor: theme.palette.background.paper,
       }}
     >
@@ -20,10 +20,6 @@ export default function Contact() {
         <Typography variant="h4" gutterBottom>
           Contact Me
         </Typography>
-        <Typography variant="h6" color="text.secondary" gutterBottom>
-          Feel free to reach out for collaborations, questions, or just to say hi!
-        </Typography>
-
         <Box component="form" sx={{ mt: 4 }}>
           <Stack spacing={3}>
             <TextField label="NAME" name="name" fullWidth required />
