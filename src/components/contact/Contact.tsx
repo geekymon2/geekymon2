@@ -6,11 +6,14 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import theme from "../../themes/theme";
 import { sendEmail } from "../../utils/emailUtil";
-import { useState } from "react";
+import { forwardRef, useState } from "react";
 import Collapse from "@mui/material/Collapse";
 import Alert from "@mui/material/Alert";
 
-export default function Contact() {
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+interface ContactProps {}
+
+const Contact = forwardRef<HTMLDivElement, ContactProps>((_props, ref) => {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -34,6 +37,7 @@ export default function Contact() {
   return (
     <Box
       component="section"
+      ref={ref as React.Ref<HTMLDivElement>}
       sx={{
         py: 2,
         bgcolor: theme.palette.background.paper,
@@ -66,4 +70,7 @@ export default function Contact() {
       </Container>
     </Box>
   );
-}
+});
+
+Contact.displayName = "Contact";
+export default Contact;
