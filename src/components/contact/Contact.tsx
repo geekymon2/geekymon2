@@ -30,7 +30,7 @@ const Contact = forwardRef<HTMLDivElement, ContactProps>((_props, ref) => {
       setStatus("success");
     } else {
       setStatus("error");
-      setErrorMessage(result.error || "Failed to send");
+      setErrorMessage(result.error ?? "Failed to send");
     }
   };
 
@@ -47,7 +47,14 @@ const Contact = forwardRef<HTMLDivElement, ContactProps>((_props, ref) => {
         <Typography variant="h4" gutterBottom>
           Contact Me
         </Typography>
-        <Box component="form" sx={{ mt: 4 }} onSubmit={handleSubmit}>
+        <Box
+          component="form"
+          sx={{ mt: 4 }}
+          onSubmit={(e) => {
+            e.preventDefault();
+            void handleSubmit(e);
+          }}
+        >
           <Stack spacing={3}>
             <TextField label="NAME" name="name" fullWidth required />
             <TextField label="EMAIL" name="email" type="email" fullWidth required />

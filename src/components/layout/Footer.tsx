@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import React from "react";
+import type React from "react";
 import Stack from "@mui/material/Stack";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import XIcon from "@mui/icons-material/X";

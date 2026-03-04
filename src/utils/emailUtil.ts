@@ -1,8 +1,8 @@
 import emailjs from "@emailjs/browser";
 
-const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+const serviceId: string = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const templateId: string = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const publicKey: string = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 export const sendEmail = async (formData: {
   name: string;
@@ -22,10 +22,10 @@ export const sendEmail = async (formData: {
     );
 
     return { success: true };
-  } catch (error: any) {
+  } catch (error) {
     return {
       success: false,
-      error: error?.text || "Something went wrong",
+      error: (error as Error)?.message || "Something went wrong",
     };
   }
 };
