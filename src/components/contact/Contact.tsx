@@ -4,10 +4,33 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
-import Alert from "@mui/material/Alert";
 import theme from "../../themes/theme";
+import { sendEmail } from "../../utils/emailUtil";
+import { useState } from "react";
+import Collapse from "@mui/material/Collapse";
+import Alert from "@mui/material/Alert";
 
 export default function Contact() {
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const result = await sendEmail({
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      message: formData.get("message") as string,
+    });
+
+    if (result.success) {
+      setStatus("success");
+    } else {
+      setStatus("error");
+      setErrorMessage(result.error || "Failed to send");
+    }
+  };
+
   return (
     <Box
       component="section"
@@ -20,7 +43,7 @@ export default function Contact() {
         <Typography variant="h4" gutterBottom>
           Contact Me
         </Typography>
-        <Box component="form" sx={{ mt: 4 }}>
+        <Box component="form" sx={{ mt: 4 }} onSubmit={handleSubmit}>
           <Stack spacing={3}>
             <TextField label="NAME" name="name" fullWidth required />
             <TextField label="EMAIL" name="email" type="email" fullWidth required />
@@ -28,14 +51,18 @@ export default function Contact() {
             <Button type="submit" variant="contained" size="large">
               Send Message
             </Button>
+
+            <Collapse in={status === "success" || status === "error"}>
+              {status === "success" && (
+                <Alert severity="success">
+                  <Typography variant="h5">Message sent successfully!</Typography>
+                </Alert>
+              )}
+
+              {status === "error" && <Alert severity="error">{errorMessage}</Alert>}
+            </Collapse>
           </Stack>
         </Box>
-
-        {
-          <Alert severity="success" sx={{ mt: 3 }}>
-            Your message has been sent!
-          </Alert>
-        }
       </Container>
     </Box>
   );
