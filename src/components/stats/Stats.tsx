@@ -67,20 +67,22 @@ export default function Stats() {
           <Box sx={item}>
             <Box component="img" src="/two-way-street.png" alt="clock" sx={iconStyle} />
             <Typography variant="h6" sx={{ my: 5 }}>
-              Github Traffic
+              Pull Requests
             </Typography>
-            <Typography variant="h5">`1212`</Typography>
+            <Typography variant="h5">
+              {loading ? "..." : (stats?.contributions.pullRequests ?? "N/A")}
+            </Typography>
           </Box>
 
           <Box sx={item}>
             <Box component="img" src="/branches.png" alt="clock" sx={iconStyle} />
             <Typography variant="h6" sx={{ my: 5 }}>
-              Page Views
+              Total Repos
             </Typography>
-            <Typography variant="h5">`1212`</Typography>
+            <Typography variant="h5">{loading ? "..." : (stats?.totalRepos ?? "N/A")}</Typography>
           </Box>
         </Box>
-        {(error !== undefined || error !== "") && (
+        {typeof error === "string" && error.trim() !== "" && (
           <Typography color="error" sx={{ mt: 3 }}>
             Error fetching stats: {error}
           </Typography>

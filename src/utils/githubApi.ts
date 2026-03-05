@@ -4,27 +4,58 @@ const token: string = import.meta.env.VITE_GITHUB_TOKEN;
 if (!username) throw new Error("Missing VITE_GITHUB_USERNAME");
 if (!token) throw new Error("Missing VITE_GITHUB_TOKEN");
 
-export interface GitHubStats {
-  followers: number;
-  publicRepos: number;
+export interface GitHubRepoStats {
+  name: string;
+  description: string | null;
+  url: string;
+  stargazers: number;
+  forks: number;
+  primaryLanguage: string | null;
   totalCommits: number;
+}
+
+export interface GitHubStats {
+  login: string;
+  name: string | null;
+  bio: string | null;
+  followers: number;
+  totalRepos: number;
+  contributions: {
+    commits: number;
+    pullRequests: number;
+    issues: number;
+  };
+  totalCommits: number;
+  repositories: GitHubRepoStats[];
 }
 
 interface GraphQLResponse {
   data?: {
     user: {
+      login: string;
+      name: string | null;
+      bio: string | null;
       followers: { totalCount: number };
       repositories: {
         totalCount: number;
         nodes: {
-          defaultBranchRef: {
+          name: string;
+          description: string | null;
+          url: string;
+          stargazerCount: number;
+          forkCount: number;
+          primaryLanguage: { name: string } | null;
+          defaultBranchRef?: {
             target: {
-              history: {
-                totalCount: number;
-              };
+              history: { totalCount: number };
             };
-          } | null;
+          };
         }[];
+      };
+      contributionsCollection: {
+        totalCommitContributions: number;
+        totalPullRequestContributions: number;
+        totalIssueContributions: number;
       };
     };
   };
@@ -35,26 +66,32 @@ export const fetchGitHubStats = async (): Promise<GitHubStats> => {
   const query = `
     query ($username: String!) {
       user(login: $username) {
-        followers {
-          totalCount
-        }
-        repositories(
-          first: 100,
-          ownerAffiliations: OWNER,
-          isFork: false
-        ) {
+        login
+        name
+        bio
+        followers { totalCount }
+        repositories(first: 100, ownerAffiliations: OWNER, isFork: false) {
           totalCount
           nodes {
+            name
+            description
+            url
+            stargazerCount
+            forkCount
+            primaryLanguage { name }
             defaultBranchRef {
               target {
                 ... on Commit {
-                  history {
-                    totalCount
-                  }
+                  history { totalCount }
                 }
               }
             }
           }
+        }
+        contributionsCollection {
+          totalCommitContributions
+          totalPullRequestContributions
+          totalIssueContributions
         }
       }
     }
@@ -101,8 +138,25 @@ export const fetchGitHubStats = async (): Promise<GitHubStats> => {
 
   return {
     followers: user.followers.totalCount,
-    publicRepos: user.repositories.totalCount,
+    totalRepos: user.repositories.totalCount,
+    contributions: {
+      commits: user.contributionsCollection.totalCommitContributions,
+      pullRequests: user.contributionsCollection.totalPullRequestContributions,
+      issues: user.contributionsCollection.totalIssueContributions,
+    },
+    login: user.login,
+    name: user.name,
+    bio: user.bio,
     totalCommits,
+    repositories: user.repositories.nodes.map((repo) => ({
+      name: repo.name,
+      description: repo.description,
+      url: repo.url,
+      stargazers: repo.stargazerCount,
+      forks: repo.forkCount,
+      primaryLanguage: repo.primaryLanguage?.name ?? null,
+      totalCommits: repo.defaultBranchRef?.target.history.totalCount ?? 0,
+    })),
   };
 };
 
