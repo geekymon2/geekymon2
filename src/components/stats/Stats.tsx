@@ -53,9 +53,7 @@ export default function Stats() {
             <Typography variant="h6" sx={{ my: 5 }}>
               Total Commits
             </Typography>
-            <Typography variant="h5">
-              {loading ? "..." : (stats?.total_commits ?? "N/A")}
-            </Typography>
+            <Typography variant="h5">{loading ? "..." : (stats?.totalCommits ?? "N/A")}</Typography>
           </Box>
 
           <Box sx={item}>
@@ -82,7 +80,7 @@ export default function Stats() {
             <Typography variant="h5">`1212`</Typography>
           </Box>
         </Box>
-        {error !== undefined && error !== "" && (
+        {(error !== undefined || error !== "") && (
           <Typography color="error" sx={{ mt: 3 }}>
             Error fetching stats: {error}
           </Typography>

@@ -1,54 +1,111 @@
-export interface GitHubStats {
-  followers: number;
-  public_repos: number;
-  total_commits: number;
-}
-
 const username: string = import.meta.env.VITE_GITHUB_USERNAME;
 const token: string = import.meta.env.VITE_GITHUB_TOKEN;
-const headers: HeadersInit = token ? { Authorization: `token ${token}` } : {};
-  
-export const fetchGitHubStats = async (): Promise<GitHubStats> => {
 
-  try {
-    const res = await fetch(`https://api.github.com/users/${username}`, { headers });
-    if (!res.ok) throw new Error("Failed to fetch GitHub user data");
+if (!username) throw new Error("Missing VITE_GITHUB_USERNAME");
+if (!token) throw new Error("Missing VITE_GITHUB_TOKEN");
 
-    const data = await res.json();
-    console.log("GitHub API response:", data);
+export interface GitHubStats {
+  followers: number;
+  publicRepos: number;
+  totalCommits: number;
+}
 
-    return {
-      followers: data.followers,
-      public_repos: data.public_repos,
-      total_commits: await fetchTotalCommits(),
+interface GraphQLResponse {
+  data?: {
+    user: {
+      followers: { totalCount: number };
+      repositories: {
+        totalCount: number;
+        nodes: {
+          defaultBranchRef: {
+            target: {
+              history: {
+                totalCount: number;
+              };
+            };
+          } | null;
+        }[];
+      };
     };
-  } catch (error: unknown) {
-    throw new Error(error instanceof Error ? error.message : String(error));
+  };
+  errors?: { message: string }[];
+}
+
+export const fetchGitHubStats = async (): Promise<GitHubStats> => {
+  const query = `
+    query ($username: String!) {
+      user(login: $username) {
+        followers {
+          totalCount
+        }
+        repositories(
+          first: 100,
+          ownerAffiliations: OWNER,
+          isFork: false
+        ) {
+          totalCount
+          nodes {
+            defaultBranchRef {
+              target {
+                ... on Commit {
+                  history {
+                    totalCount
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const response = await fetch("https://api.github.com/graphql", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      query,
+      variables: { username },
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error(await response.text());
   }
+
+  const json: unknown = await response.json();
+
+  if (!isGraphQLResponse(json)) {
+    throw new Error("Invalid response format");
+  }
+
+  const result: GraphQLResponse = json;
+
+  if (result.errors && result.errors.length > 0 && result.errors[0].message) {
+    throw new Error(result.errors[0].message);
+  }
+
+  if (!result.data) {
+    throw new Error("No data returned");
+  }
+
+  const user = result.data.user;
+
+  const totalCommits = user.repositories.nodes.reduce(
+    (sum, repo) => sum + (repo.defaultBranchRef?.target.history.totalCount ?? 0),
+    0,
+  );
+
+  return {
+    followers: user.followers.totalCount,
+    publicRepos: user.repositories.totalCount,
+    totalCommits,
+  };
 };
 
-export const fetchTotalCommits = async (): Promise<number> => {
-
-  const reposRes = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`, { headers });
-  if (!reposRes.ok) throw new Error("Failed to fetch repositories");
-  const repos = await reposRes.json();
-
-  const totalCommits = await Promise.all(
-    repos.map(async (repo: any) => {
-      const res = await fetch(
-        `https://api.github.com/repos/${username}/${repo.name}/commits?author=${username}&per_page=1`,
-        { headers }
-      );
-      const link = res.headers.get("link");
-      if (link) {
-        const match = link.match(/&page=(\d+)>; rel="last"/);
-        return match ? parseInt(match[1]) : 0;
-      } else {
-        const commits = await res.json();
-        return commits.length;
-      }
-    })
-  ).then(arr => arr.reduce((a, b) => a + b, 0));
-
-  return totalCommits;
+function isGraphQLResponse(obj: unknown): obj is GraphQLResponse {
+  return typeof obj === "object" && obj !== null && ("data" in obj || "errors" in obj);
 }
