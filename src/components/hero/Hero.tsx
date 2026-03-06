@@ -3,6 +3,7 @@ import Typography from "@mui/material/Typography";
 import HeroLayout from "./HeroLayout";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import theme from "../../themes/theme";
+import { heroTitleStyle } from "./heroLayoutStyles";
 
 const backgroundImage = "/coding.png?auto=format&fit=crop&w=1440";
 
@@ -15,7 +16,7 @@ export default function ProductHero() {
         backgroundImage: `url(${backgroundImage})`,
       }}
     >
-      <Typography color="inherit" align="center" variant={isMobile ? "h4" : "h2"}>
+      <Typography style={heroTitleStyle} color="inherit" align="center" variant={isMobile ? "h4" : "h2"}>
         Engineer. Problem Solver. Creator.
       </Typography>
       <Typography color="inherit" align="center" variant="h5" sx={{ mb: 4, mt: { xs: 4, sm: 10 } }}>

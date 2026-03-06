@@ -8,10 +8,12 @@ export const heroSectionStyle: CSSProperties = {
 };
 
 export const heroTitleStyle: CSSProperties = {
-  fontSize: "48px",
-  fontWeight: "bold",
+  fontSize: "64px",
   marginBottom: "20px",
   color: "inherit",
+  fontFamily: "Chakra Petch, sans-serif",
+  fontWeight: "700",
+  fontStyle: "normal"
 };
 
 export const Background = styled("div")({
