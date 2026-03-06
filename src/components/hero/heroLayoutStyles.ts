@@ -34,11 +34,9 @@ export const HeroLayoutRoot = styled("section")<{ theme?: Theme }>((props) => ({
   position: "relative",
   display: "flex",
   alignItems: "center",
-  [`@media (min-width: 600px)`]: {
-    height: "60vh",
-    minHeight: 500,
-    maxHeight: 1300,
-  },
+  height: "60vh",
+  minHeight: 500,
+  maxHeight: 1300,
 }));
 
 export const boxStyle: CSSProperties = {
