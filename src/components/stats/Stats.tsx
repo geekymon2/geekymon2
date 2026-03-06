@@ -30,7 +30,7 @@ export default function Stats() {
       component="section"
       sx={{ display: "flex", overflow: "hidden", bgcolor: "secondary.light", width: "100%" }}
     >
-      <Container sx={{ mt: 15, mb: 30, position: "relative" }}>
+      <Container sx={{ mt: 4, mb: 4, position: "relative" }}>
         <Box
           component="img"
           src="/curvy-lines.png"

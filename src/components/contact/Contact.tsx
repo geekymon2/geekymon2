@@ -45,7 +45,7 @@ const Contact = forwardRef<HTMLDivElement, ContactProps>((_props, ref) => {
       }}
     >
       <Container maxWidth="sm">
-        <Typography variant="h4" gutterBottom>
+        <Typography sx={{ textAlign: "center" }} variant="h4" gutterBottom>
           Contact Me
         </Typography>
         <Box

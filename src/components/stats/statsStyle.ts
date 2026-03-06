@@ -4,7 +4,7 @@ export const item: SxProps<Theme> = {
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  px: 5,
+  px: 2,
 };
 
 export const iconStyle = {
