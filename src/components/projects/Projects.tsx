@@ -84,12 +84,12 @@ const images = [
     width: "24%",
   },
   {
-    url: "https://images.unsplash.com/photo-1669865015890-4dbd855de0f7?auto=format&fit=crop&w=400",
+    url: "https://images.unsplash.com/photo-1599153066743-08810dc8a419?auto=format&fit=crop&w=400",
     title: "Aws",
     width: "40%",
   },
   {
-    url: "https://images.unsplash.com/photo-1727434032773-af3cd98375ba??auto=format&fit=crop&w=600",
+    url: "https://images.unsplash.com/photo-1716637644831-e046c73be197?auto=format&fit=crop&w=600",
     title: "AI",
     width: "20%",
   },
