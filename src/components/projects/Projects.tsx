@@ -54,48 +54,48 @@ const ImageIconButton = styled(ButtonBase)(({ theme }) => ({
 
 const images = [
   {
-    url: "https://images.unsplash.com/photo-1534081333815-ae5019106622?auto=format&fit=crop&w=400",
+    url: "https://images.unsplash.com/photo-1617040619263-41c5a9ca7521?auto=format&fit=crop&w=400",
     title: "Flutter",
     width: "40%",
   },
   {
-    url: "https://images.unsplash.com/photo-1531299204812-e6d44d9a185c?auto=format&fit=crop&w=400",
+    url: "https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=400",
     title: "Spring Boot",
     width: "20%",
   },
   {
-    url: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=400",
-    title: ".NET Core",
+    url: "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?auto=format&fit=crop&w=400",
+    title: ".NET",
     width: "40%",
   },
   {
-    url: "https://images.unsplash.com/photo-1453747063559-36695c8771bd?auto=format&fit=crop&w=400",
+    url: "https://images.unsplash.com/photo-1687603921109-46401b201195?auto=format&fit=crop&w=400",
     title: "React",
     width: "38%",
   },
   {
-    url: "https://images.unsplash.com/photo-1523309996740-d5315f9cc28b?auto=format&fit=crop&w=400",
+    url: "https://images.unsplash.com/photo-1588239034647-25783cbfcfc1?auto=format&fit=crop&w=400",
     title: "Java",
     width: "38%",
   },
   {
-    url: "https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?auto=format&fit=crop&w=400",
-    title: "Python",
+    url: "https://images.unsplash.com/photo-1667372459567-3853510dd5ce?auto=format&fit=crop&w=400",
+    title: "Kubernetes",
     width: "24%",
   },
   {
-    url: "https://images.unsplash.com/photo-1506941433945-99a2aa4bd50a?auto=format&fit=crop&w=400",
-    title: "Node.js",
+    url: "https://images.unsplash.com/photo-1669865015890-4dbd855de0f7?auto=format&fit=crop&w=400",
+    title: "Aws",
     width: "40%",
   },
   {
-    url: "https://images.unsplash.com/photo-1533727937480-da3a97967e95?auto=format&fit=crop&w=400",
-    title: "Django",
+    url: "https://images.unsplash.com/photo-1727434032773-af3cd98375ba??auto=format&fit=crop&w=600",
+    title: "AI",
     width: "20%",
   },
   {
-    url: "https://images.unsplash.com/photo-1518136247453-74e7b5265980?auto=format&fit=crop&w=400",
-    title: "Angular",
+    url: "https://images.unsplash.com/photo-1708502046544-89f8d7b276f1?auto=format&fit=crop&w=400",
+    title: "Azure",
     width: "40%",
   },
 ];
