@@ -41,6 +41,7 @@ const Contact = forwardRef<HTMLDivElement, ContactProps>((_props, ref) => {
       sx={{
         py: 2,
         bgcolor: theme.palette.background.paper,
+        width: "100%",
       }}
     >
       <Container maxWidth="sm">

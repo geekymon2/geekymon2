@@ -37,6 +37,7 @@ export const HeroLayoutRoot = styled("section")<{ theme?: Theme }>((props) => ({
   height: "60vh",
   minHeight: 500,
   maxHeight: 1300,
+  width: "100%",
 }));
 
 export const boxStyle: CSSProperties = {

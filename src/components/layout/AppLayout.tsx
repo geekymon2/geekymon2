@@ -7,6 +7,7 @@ import Contact from "../contact/Contact";
 import About from "../about/About";
 import ContactBanner from "../contact/ContactBanner";
 import { useRef } from "react";
+import { mainLayoutStyle } from "./appLayoutStyles";
 
 export default function AppLayout(): React.ReactElement {
   const contactRef = useRef<HTMLDivElement | null>(null);
@@ -14,12 +15,14 @@ export default function AppLayout(): React.ReactElement {
   return (
     <>
       <Header contactRef={contactRef} />
-      <Hero />
-      <Stats />
-      <Projects />
-      <About />
-      <ContactBanner />
-      <Contact ref={contactRef} />
+      <main style={mainLayoutStyle}>
+        <Hero />
+        <Stats />
+        <Projects />
+        <About />
+        <ContactBanner />
+        <Contact ref={contactRef} />
+      </main>
       <Footer />
     </>
   );
