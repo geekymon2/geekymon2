@@ -4,11 +4,15 @@ import HeroLayout from "./HeroLayout";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import theme from "../../themes/theme";
 import { HeroTitle } from "./heroLayoutStyles";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../constants/routes";
 
 const backgroundImage = "/coding.png?auto=format&fit=crop&w=1440";
 
 export default function ProductHero() {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const navigate = useNavigate();
+  const goToSkills = () => navigate(ROUTES.SKILLS);
 
   return (
     <HeroLayout
@@ -29,9 +33,11 @@ export default function ProductHero() {
         component="a"
         sx={{ minWidth: 300 }}
       >
-        <Typography variant="h4" color="inherit">
-          My SKills
-        </Typography>
+        <Button color="inherit" onClick={goToSkills} size="large">
+          <Typography variant="h4" color="inherit">
+            My SKills
+          </Typography>
+        </Button>
       </Button>
     </HeroLayout>
   );

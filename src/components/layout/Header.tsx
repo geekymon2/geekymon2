@@ -3,6 +3,8 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import { Title } from "./headerStyles";
 import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../constants/routes";
 
 interface HeaderProps {
   contactRef?: React.RefObject<HTMLDivElement | null>;
@@ -10,6 +12,10 @@ interface HeaderProps {
 function Header({ contactRef }: HeaderProps) {
   const handleScrollToContact = () => {
     contactRef?.current?.scrollIntoView({ behavior: "smooth" });
+  };
+  const navigate = useNavigate();
+  const gotoHome = () => {
+    navigate(ROUTES.HOME);
   };
 
   return (
@@ -21,7 +27,7 @@ function Header({ contactRef }: HeaderProps) {
           }}
         >
           <Box sx={{ flex: 1 }} />
-          <Title>geekymon2</Title>
+          <Title onClick={gotoHome}>geekymon2</Title>
           <Box sx={{ flex: 1, display: "flex", justifyContent: "flex-end" }}>
             <Button size="large" onClick={handleScrollToContact} color="inherit">
               Contact Me
