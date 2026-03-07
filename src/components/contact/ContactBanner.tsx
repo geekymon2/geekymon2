@@ -14,7 +14,7 @@ function ContactBanner() {
           m: 2,
         }}
       >
-        <Typography variant="h5" component="span" sx={{ m:2, p: 2 }}>
+        <Typography variant="h5" component="span" sx={{ m: 2, p: 2 }}>
           Feel free to reach out for collaboration!
         </Typography>
       </Box>

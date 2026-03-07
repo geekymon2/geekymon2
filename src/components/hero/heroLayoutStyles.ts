@@ -13,7 +13,7 @@ export const heroTitleStyle: CSSProperties = {
   color: "inherit",
   fontFamily: "Chakra Petch, sans-serif",
   fontWeight: "700",
-  fontStyle: "normal"
+  fontStyle: "normal",
 };
 
 export const Background = styled("div")({
