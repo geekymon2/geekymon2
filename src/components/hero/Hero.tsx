@@ -16,7 +16,12 @@ export default function ProductHero() {
         backgroundImage: `url(${backgroundImage})`,
       }}
     >
-      <Typography style={heroTitleStyle} color="inherit" align="center" variant={isMobile ? "h4" : "h2"}>
+      <Typography
+        style={heroTitleStyle}
+        color="inherit"
+        align="center"
+        variant={isMobile ? "h4" : "h2"}
+      >
         Engineer. Problem Solver. Creator.
       </Typography>
       <Typography color="inherit" align="center" variant="h5" sx={{ mb: 4, mt: { xs: 4, sm: 10 } }}>
@@ -27,9 +32,11 @@ export default function ProductHero() {
         variant="contained"
         size="large"
         component="a"
-        sx={{ minWidth: 200 }}
+        sx={{ minWidth: 300 }}
       >
-        My Skills
+        <Typography variant="h4" color="inherit">
+          My SKills
+        </Typography>
       </Button>
     </HeroLayout>
   );
