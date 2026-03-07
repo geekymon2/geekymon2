@@ -36,7 +36,7 @@ export const HeroLayoutRoot = styled("section")<{ theme?: Theme }>((props) => ({
   position: "relative",
   display: "flex",
   alignItems: "center",
-  height: "60vh",
+  height: "75vh",
   minHeight: 500,
   maxHeight: 1300,
   width: "100%",
