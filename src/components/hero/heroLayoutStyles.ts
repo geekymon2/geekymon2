@@ -1,20 +1,20 @@
-import styled from "@emotion/styled";
 import type { CSSProperties } from "react";
 import type { SxProps } from "@mui/system";
 import type { Theme } from "@mui/material/styles";
+import { styled, Typography } from "@mui/material";
 
 export const heroSectionStyle: CSSProperties = {
   width: "100%",
 };
 
-export const heroTitleStyle: CSSProperties = {
+export const HeroTitle = styled(Typography)(({ theme }: { theme: Theme }) => ({
   fontSize: "64px",
   marginBottom: "20px",
-  color: "inherit",
+  color: theme.palette.secondary.main,
   fontFamily: "Chakra Petch, sans-serif",
   fontWeight: "700",
   fontStyle: "normal",
-};
+}));
 
 export const Background = styled("div")({
   position: "absolute",
