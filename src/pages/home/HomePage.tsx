@@ -21,7 +21,7 @@ export default function HomePage() {
       // Clear the state so it doesn’t scroll again
       window.history.replaceState({}, "");
     }
-  }, [location.state]);
+  }, [location.state, contactRef]);
 
   return (
     <>

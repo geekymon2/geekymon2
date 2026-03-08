@@ -22,8 +22,14 @@ function Header({ contactRef }: HeaderProps) {
     }
   };
 
+  const gotoSkills = () => {
+    navigate(ROUTES.SKILLS);
+    window.scrollTo(0, 0);
+  };
+
   const gotoHome = () => {
     navigate(ROUTES.HOME);
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -37,6 +43,12 @@ function Header({ contactRef }: HeaderProps) {
           <Box sx={{ flex: 1 }} />
           <Title onClick={gotoHome}>geekymon2</Title>
           <Box sx={{ flex: 1, display: "flex", justifyContent: "flex-end" }}>
+            <Button size="large" onClick={gotoHome} color="inherit">
+              Home
+            </Button>
+            <Button size="large" onClick={gotoSkills} color="inherit">
+              Skills
+            </Button>
             <Button size="large" onClick={gotoContact} color="inherit">
               Contact Me
             </Button>
