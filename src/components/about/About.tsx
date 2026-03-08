@@ -19,11 +19,7 @@ const About = () => {
   return (
     <MainBox component="section">
       <MainContainer>
-        <CurvyImage
-          component="img"
-          src="/curvy-lines.png"
-          alt="curvy lines"
-        />
+        <CurvyImage component="img" src="/curvy-lines.png" alt="curvy lines" />
         <Typography variant="h4" component="h2" sx={{ mb: 14 }}>
           About Me
         </Typography>

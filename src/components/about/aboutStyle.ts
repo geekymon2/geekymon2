@@ -11,7 +11,7 @@ export const item: SxProps<Theme> = {
   minWidth: 0,
 };
 
-export const MainBox = styled(Box)<BoxProps>(({theme }) => ({
+export const MainBox = styled(Box)<BoxProps>(({ theme }) => ({
   backgroundColor: theme.palette.secondary.light,
   overflow: "hidden",
   width: "100%",

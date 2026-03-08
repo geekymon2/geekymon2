@@ -18,19 +18,21 @@ function Header({ contactRef }: HeaderProps) {
       contactRef?.current?.scrollIntoView({ behavior: "smooth" });
     } else {
       // Navigate to home page and pass state
-      navigate(ROUTES.HOME, { state: { scrollToContact: true } });
+      void navigate(ROUTES.HOME, { state: { scrollToContact: true } });
     }
   };
 
   const gotoSkills = () => {
-    navigate(ROUTES.SKILLS);
+    void navigate(ROUTES.SKILLS);
     window.scrollTo(0, 0);
   };
 
   const gotoHome = () => {
-    navigate(ROUTES.HOME);
+    void navigate(ROUTES.HOME);
     window.scrollTo(0, 0);
   };
+
+  const handleClick = (fn: () => void | Promise<void>) => () => void fn();
 
   return (
     <div>
@@ -41,15 +43,15 @@ function Header({ contactRef }: HeaderProps) {
           }}
         >
           <Box sx={{ flex: 1 }} />
-          <Title onClick={gotoHome}>geekymon2</Title>
+          <Title onClick={handleClick(gotoHome)}>geekymon2</Title>
           <Box sx={{ flex: 1, display: "flex", justifyContent: "flex-end" }}>
-            <Button size="large" onClick={gotoHome} color="inherit">
+            <Button size="large" onClick={handleClick(gotoHome)} color="inherit">
               Home
             </Button>
-            <Button size="large" onClick={gotoSkills} color="inherit">
+            <Button size="large" onClick={handleClick(gotoSkills)} color="inherit">
               Skills
             </Button>
-            <Button size="large" onClick={gotoContact} color="inherit">
+            <Button size="large" onClick={handleClick(gotoContact)} color="inherit">
               Contact Me
             </Button>
           </Box>

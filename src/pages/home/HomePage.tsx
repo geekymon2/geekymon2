@@ -11,11 +11,17 @@ type LayoutContext = {
   contactRef: React.RefObject<HTMLDivElement>;
 };
 
+interface LocationState {
+  scrollToContact?: boolean;
+}
+
 export default function HomePage() {
   const { contactRef } = useOutletContext<LayoutContext>();
   const location = useLocation();
   useEffect(() => {
-    if (location.state?.scrollToContact) {
+    const state = location.state as LocationState;
+    const shouldScroll = state?.scrollToContact ?? false;
+    if (shouldScroll) {
       // Scroll after mount
       contactRef.current?.scrollIntoView({ behavior: "smooth" });
       // Clear the state so it doesn’t scroll again

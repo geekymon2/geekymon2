@@ -12,7 +12,7 @@ const backgroundImage = "/coding.png?auto=format&fit=crop&w=1440";
 export default function ProductHero() {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const navigate = useNavigate();
-  const goToSkills = () => navigate(ROUTES.SKILLS);
+  const goToSkills = () => void navigate(ROUTES.SKILLS);
 
   return (
     <HeroLayout
@@ -33,7 +33,7 @@ export default function ProductHero() {
         component="a"
         sx={{ minWidth: 300 }}
       >
-        <Button color="inherit" onClick={goToSkills} size="large">
+        <Button color="inherit" onClick={() => goToSkills()} size="large">
           <Typography variant="h4" color="inherit">
             My SKills
           </Typography>
