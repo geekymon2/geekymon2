@@ -10,10 +10,18 @@ interface HeaderProps {
   contactRef?: React.RefObject<HTMLDivElement | null>;
 }
 function Header({ contactRef }: HeaderProps) {
-  const handleScrollToContact = () => {
-    contactRef?.current?.scrollIntoView({ behavior: "smooth" });
-  };
   const navigate = useNavigate();
+
+  const gotoContact = () => {
+    if (location.pathname === ROUTES.HOME) {
+      // Already on home page — scroll directly
+      contactRef?.current?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // Navigate to home page and pass state
+      navigate(ROUTES.HOME, { state: { scrollToContact: true } });
+    }
+  };
+
   const gotoHome = () => {
     navigate(ROUTES.HOME);
   };
@@ -29,7 +37,7 @@ function Header({ contactRef }: HeaderProps) {
           <Box sx={{ flex: 1 }} />
           <Title onClick={gotoHome}>geekymon2</Title>
           <Box sx={{ flex: 1, display: "flex", justifyContent: "flex-end" }}>
-            <Button size="large" onClick={handleScrollToContact} color="inherit">
+            <Button size="large" onClick={gotoContact} color="inherit">
               Contact Me
             </Button>
           </Box>
