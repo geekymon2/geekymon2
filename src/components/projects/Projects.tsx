@@ -52,51 +52,69 @@ const ImageIconButton = styled(ButtonBase)(({ theme }) => ({
   },
 }));
 
-const images = [
+const projects = [
   {
-    url: "https://images.unsplash.com/photo-1617040619263-41c5a9ca7521?auto=format&fit=crop&w=400",
+    imageUrl:
+      "https://images.unsplash.com/photo-1617040619263-41c5a9ca7521?auto=format&fit=crop&w=400",
     title: "Flutter",
     width: "40%",
+    url: "https://www.youtube.com/playlist?list=PL5isL9TTd9XBQKxxRVFRT8edLmTICkGMH",
   },
   {
-    url: "https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=400",
+    imageUrl:
+      "https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=400",
     title: "Spring Boot",
     width: "20%",
+    url: "https://www.youtube.com/playlist?list=PL5isL9TTd9XCs0rtmAApo1llqCdN9DsYf",
   },
   {
-    url: "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?auto=format&fit=crop&w=400",
+    imageUrl:
+      "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?auto=format&fit=crop&w=400",
     title: ".NET",
     width: "40%",
+    url: "https://www.youtube.com/playlist?list=PL5isL9TTd9XCdXIpYH8oS8DA8cNtU2rQp",
   },
   {
-    url: "https://images.unsplash.com/photo-1687603921109-46401b201195?auto=format&fit=crop&w=400",
+    imageUrl:
+      "https://images.unsplash.com/photo-1687603921109-46401b201195?auto=format&fit=crop&w=400",
     title: "React",
     width: "38%",
+    url: "https://www.youtube.com/playlist?list=PL5isL9TTd9XCOG7pBvpjwQZW2ZyuMAn9V",
   },
   {
-    url: "https://images.unsplash.com/photo-1588239034647-25783cbfcfc1?auto=format&fit=crop&w=400",
+    imageUrl:
+      "https://images.unsplash.com/photo-1588239034647-25783cbfcfc1?auto=format&fit=crop&w=400",
     title: "Java",
     width: "38%",
+    url: "https://www.youtube.com/playlist?list=PL5isL9TTd9XCs0rtmAApo1llqCdN9DsYf",
   },
   {
-    url: "https://images.unsplash.com/photo-1667372459567-3853510dd5ce?auto=format&fit=crop&w=400",
+    imageUrl:
+      "https://images.unsplash.com/photo-1667372459567-3853510dd5ce?auto=format&fit=crop&w=400",
     title: "Kubernetes",
     width: "24%",
+    url: "https://www.youtube.com/playlist?list=PL5isL9TTd9XCs0rtmAApo1llqCdN9DsYf",
   },
   {
-    url: "https://images.unsplash.com/photo-1599153066743-08810dc8a419?auto=format&fit=crop&w=400",
+    imageUrl:
+      "https://images.unsplash.com/photo-1599153066743-08810dc8a419?auto=format&fit=crop&w=400",
     title: "Aws",
     width: "40%",
+    url: "https://www.youtube.com/playlist?list=PL5isL9TTd9XCs0rtmAApo1llqCdN9DsYf",
   },
   {
-    url: "https://images.unsplash.com/photo-1716637644831-e046c73be197?auto=format&fit=crop&w=600",
+    imageUrl:
+      "https://images.unsplash.com/photo-1716637644831-e046c73be197?auto=format&fit=crop&w=600",
     title: "AI",
     width: "20%",
+    url: "https://youtu.be/h0cFiontU7w",
   },
   {
-    url: "https://images.unsplash.com/photo-1708502046544-89f8d7b276f1?auto=format&fit=crop&w=400",
+    imageUrl:
+      "https://images.unsplash.com/photo-1708502046544-89f8d7b276f1?auto=format&fit=crop&w=400",
     title: "Azure",
     width: "40%",
+    url: "https://www.youtube.com/playlist?list=PL5isL9TTd9XCs0rtmAApo1llqCdN9DsYf",
   },
 ];
 
@@ -107,12 +125,13 @@ export default function Projects() {
         Projects
       </Typography>
       <Box sx={{ mt: 8, display: "flex", flexWrap: "wrap" }}>
-        {images.map((image) => (
+        {projects.map((project) => (
           <ImageIconButton
-            key={image.title}
+            key={project.title}
             style={{
-              width: image.width,
+              width: project.width,
             }}
+            onClick={() => window.open(`${project.url}`, "_blank")}
           >
             <Box
               sx={{
@@ -123,7 +142,7 @@ export default function Projects() {
                 bottom: 0,
                 backgroundSize: "cover",
                 backgroundPosition: "center 40%",
-                backgroundImage: `url(${image.url})`,
+                backgroundImage: `url(${project.imageUrl})`,
               }}
             />
             <ImageBackdrop className="imageBackdrop" />
@@ -141,7 +160,7 @@ export default function Projects() {
               }}
             >
               <Typography component="h3" variant="h6" color="inherit" className="imageTitle">
-                {image.title}
+                {project.title}
                 <div className="imageMarked" />
               </Typography>
             </Box>
