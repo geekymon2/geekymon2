@@ -1,4 +1,4 @@
-import { Container } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import Box, { type BoxProps } from "@mui/material/Box";
 import { styled, type SxProps, type Theme } from "@mui/material/styles";
 
@@ -32,4 +32,20 @@ export const CurvyImage = styled("img")<BoxProps>({
   position: "absolute",
   top: -180,
   opacity: 0.7,
+});
+
+export const SectionTitle = styled(Typography)(({ theme }) => ({
+  fontSize: 24,
+  fontFamily: "default",
+  color: theme.palette.primary.main,
+  fontWeight: "medium",
+  marginBottom: theme.spacing(4),
+  textAlign: "center",
+}));
+
+export const ExpertiseContainer = styled(Box)<BoxProps>({
+  display: "flex",
+  flexWrap: "wrap",
+  flexDirection: "row",
+  justifyContent: "center",
 });
