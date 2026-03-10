@@ -8,4 +8,6 @@ export const Title = styled(Typography)(({ theme }: { theme: Theme }) => ({
   fontFamily: theme.typography.h6.fontFamily,
   textTransform: theme.typography.h6.textTransform,
   color: theme.palette.common.white,
+  textDecoration: "none",
+  letterSpacing: "0.3rem",
 }));
