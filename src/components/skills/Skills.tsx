@@ -5,79 +5,222 @@ import CardContent from "@mui/material/CardContent";
 import Box from "@mui/material/Box";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
+import Grid from "@mui/material/Grid";
+import Divider from "@mui/material/Divider";
 
 const skillGroups = [
   {
     category: "Frontend",
-    gradient: "linear-gradient(135deg,#4facfe,#00f2fe)",
     skills: [
       {
         name: "React",
         level: "Expert",
         years: 5,
+        version: "19.x",
         icon: "⚛️",
-        tags: ["Hooks", "SPA", "Performance"],
+        tags: [
+          "Hooks",
+          "SPA",
+          "Context API",
+          "Router",
+          "Data Fetching",
+          "Responsive UI",
+          "State Management",
+        ],
       },
       {
         name: "TypeScript",
         level: "Advanced",
         years: 4,
+        version: "5.x",
         icon: "📘",
-        tags: ["Typing", "Large Apps"],
+        tags: [
+          "Typing",
+          "Large Apps",
+          "Interfaces",
+          "Type Safety",
+          "Generics",
+          "Arrow Functions",
+          "Async/Await",
+          "Modules",
+        ],
       },
       {
         name: "Angular",
-        level: "Advanced",
-        years: 6,
+        level: "Intermediate",
+        years: 1,
+        version: "20.x",
         icon: "🅰️",
-        tags: ["RxJS", "Enterprise Apps"],
+        tags: ["RxJS", "Signal", "Lazy Loading", "Enterprise Apps", "Component-Based"],
       },
     ],
   },
   {
     category: "Backend",
-    gradient: "linear-gradient(135deg,#43e97b,#38f9d7)",
     skills: [
       {
-        name: ".NET",
+        name: ".NET Core",
         level: "Expert",
         years: 12,
+        version: "8.x",
         icon: "🟣",
-        tags: ["Enterprise", "API Design"],
+        tags: [
+          "Enterprise",
+          "API Design",
+          "Microservices",
+          "High Performance",
+          "C#",
+          "Dependency Injection",
+          "LINQ",
+          "Entity Framework",
+          "Asynchronous Programming",
+        ],
       },
       {
         name: "Node.js",
         level: "Advanced",
         years: 5,
+        version: "18.x",
         icon: "🟢",
-        tags: ["REST APIs", "Microservices"],
+        tags: ["Express", "API Development", "Real-time Apps", "Event-Driven"],
       },
       {
         name: "Java",
         level: "Advanced",
         years: 10,
+        version: "17.x, 21.x",
         icon: "☕",
-        tags: ["Spring", "High Performance"],
+        tags: [
+          "Spring",
+          "Spring Boot",
+          "Enterprise",
+          "Microservices",
+          "High Performance",
+          "OOP",
+          "JVM",
+          "Multithreading",
+        ],
+      },
+      {
+        name: "Databases",
+        level: "Advanced",
+        years: 18,
+        version: undefined,
+        icon: "🗄️",
+        tags: [
+          "SQL Server",
+          "MySQL",
+          "PostgreSQL",
+          "MongoDB",
+          "Database Design",
+          "Performance Tuning",
+        ],
+      },
+      {
+        name: "APIs & Protocols",
+        level: "Advanced",
+        years: 15,
+        version: undefined,
+        icon: "🔌",
+        tags: [
+          "REST",
+          "GraphQL",
+          "API Design",
+          "API Security",
+          "API Documentation",
+          "JWT",
+          "OAuth",
+          "OpenAPI",
+          "SOAP",
+        ],
       },
     ],
   },
   {
-    category: "Cloud & DevOps",
-    gradient: "linear-gradient(135deg,#fa709a,#fee140)",
+    category: "Cloud",
     skills: [
       {
         name: "AWS",
         level: "Advanced",
-        years: 4,
+        years: 6,
+        version: undefined,
         icon: "☁️",
-        tags: ["Lambda", "S3", "Architecture"],
+        tags: [
+          "Lambda",
+          "S3",
+          "EC2",
+          "RDS",
+          "Fargate",
+          "EFS",
+          "EBS",
+          "DynamoDB",
+          "API Gateway",
+          "CloudFormation",
+          "Serverless",
+          "CI/CD",
+          "Cloud Security",
+          "Cloud Architecture",
+        ],
       },
       {
-        name: "Kubernetes",
-        level: "Intermediate",
+        name: "Azure",
+        level: "Advanced",
         years: 3,
-        icon: "🐳",
-        tags: ["Containers", "Scaling"],
+        version: undefined,
+        icon: "☁️",
+        tags: [
+          "Azure App Services",
+          "Azure Functions",
+          "Azure SQL Database",
+          "Azure Storage",
+          "Azure DevOps",
+          "Azure Kubernetes Service",
+          "Azure Active Directory",
+          "Azure Monitor",
+          "Azure Resource Manager",
+          "Azure Security",
+        ],
+      },
+    ],
+  },
+  {
+    category: "Monitoring and Observability",
+    skills: [
+      {
+        name: "Dynatrace",
+        level: "Advanced",
+        years: 6,
+        version: undefined,
+        icon: "📈",
+        tags: [
+          "Application Performance Monitoring",
+          "Infrastructure Monitoring",
+          "Real User Monitoring",
+          "Synthetic Monitoring",
+          "Log Management",
+          "AI-Powered Insights",
+          "Cloud Monitoring",
+          "Microservices Observability",
+          "Custom Dashboards",
+          "Alerting and Anomaly Detection",
+        ],
+      },
+      {
+        name: "AppInsights",
+        level: "Advanced",
+        years: 3,
+        version: undefined,
+        icon: "📊",
+        tags: [
+          "Application Performance Monitoring",
+          "Infrastructure Monitoring",
+          "Real User Monitoring",
+          "Synthetic Monitoring",
+          "Log Management",
+          "Observability",
+          "Dashboards",
+          "Alerting and Anomaly Detection",
+        ],
       },
     ],
   },
@@ -85,74 +228,63 @@ const skillGroups = [
 
 export default function Skills() {
   return (
-    <Container sx={{ py: 12, maxWidth: 1100 }}>
-      <Typography variant="h3" align="center" sx={{ fontWeight: 700 }} gutterBottom>
+    <Container maxWidth="lg" sx={{ py: 12 }}>
+      <Typography variant="h3" align="center" sx={{ fontWeight: 700, mb: 8 }}>
         Technical Skills
       </Typography>
 
       {skillGroups.map((group) => (
-        <Box key={group.category} mt={10}>
-          {/* Category Header */}
-          <Box
-            sx={{
-              background: group.gradient,
-              color: "white",
-              px: 3,
-              py: 1,
-              borderRadius: 2,
-              display: "inline-block",
-              mb: 4,
-            }}
-          >
+        <Box key={group.category} mb={10}>
+          {/* Category Title */}
+          <Stack direction="row" alignItems="center" spacing={2} mb={4}>
             <Typography variant="h5" fontWeight={600}>
               {group.category}
             </Typography>
-          </Box>
-
-          {/* Skills Flex Container */}
-          <Box
-            sx={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: 24, // space between boxes
-            }}
-          >
+            <Divider sx={{ flex: 1 }} />
+          </Stack>
+          <Grid container spacing={4}>
             {group.skills.map((skill) => (
-              <Card
-                key={skill.name}
-                sx={{
-                  flex: "1 1 250px", // grow, shrink, min width
-                  minWidth: 250,
-                  borderRadius: 3,
-                  transition: "all 0.3s",
-                  "&:hover": {
-                    transform: "translateY(-6px)",
-                    boxShadow: 8,
-                  },
-                }}
-              >
-                <CardContent>
-                  {/* Skill Header */}
-                  <Stack direction="row" alignItems="center" spacing={1} mb={1}>
-                    <Typography fontSize={22}>{skill.icon}</Typography>
-                    <Typography fontWeight={600}>{skill.name}</Typography>
-                  </Stack>
-
-                  {/* Level + Years */}
-                  <Typography variant="body2" color="text.secondary" mb={2}>
-                    {skill.level} • {skill.years} yrs
-                  </Typography>
-
-                  {/* Tags */}
-                  <Stack direction="row" spacing={1} flexWrap="wrap">
-                    {skill.tags.map((tag) => (
-                      <Chip key={tag} label={tag} size="small" variant="outlined" />
-                    ))}
-                  </Stack>
-                </CardContent>
-              </Card>
+              <Grid key={skill.name}>
+                <Card
+                  sx={{
+                    height: "100%",
+                    width: 360,
+                    borderRadius: 3,
+                    border: "1px solid",
+                    borderColor: "divider",
+                    transition: "all 0.25s ease",
+                    "&:hover": {
+                      transform: "translateY(-4px)",
+                      boxShadow: 4,
+                    },
+                  }}
+                >
+                  <CardContent sx={{ p: 3 }}>
+                    <Stack direction="row" spacing={2} alignItems="center" mb={1}>
+                      <Typography fontSize={26}>{skill.icon}</Typography>
+                      <Typography fontWeight={600} variant="h6">
+                        {skill.name}
+                      </Typography>
+                    </Stack>
+                    <Typography variant="body2" color="text.secondary" mb={1}>
+                      • {skill.level} • {skill.years} years{" "}
+                      {skill.version ? "• v" + skill.version : ""}
+                    </Typography>
+                    <Box
+                      display="flex"
+                      flexWrap="wrap"
+                      gap={1} // spacing between chips (both horizontal & vertical)
+                      justifyContent="flex-start"
+                    >
+                      {skill.tags.map((tag) => (
+                        <Chip key={tag} label={tag} size="small" variant="outlined" />
+                      ))}
+                    </Box>
+                  </CardContent>
+                </Card>
+              </Grid>
             ))}
-          </Box>
+          </Grid>
         </Box>
       ))}
     </Container>
